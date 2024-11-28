@@ -1,0 +1,151 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdgsb0yy73rn2"]
+
+[ext_resource type="StyleBox" uid="uid://cjf532kmes4ba" path="res://-Main Menu/¬Styles/Main-Menu-Buttons.tres" id="1_djqlb"]
+[ext_resource type="Script" path="res://-Main Menu/¬Buttons/credits.gd" id="1_gu274"]
+[ext_resource type="FontFile" uid="uid://b6rkmc1gihof2" path="res://-Media/¬Fonts/Ubuntu-Bold.ttf" id="2_2cr0y"]
+[ext_resource type="StyleBox" uid="uid://b3c78s32vll8t" path="res://-Main Menu/¬Styles/main_menu_hover.tres" id="4_63k6y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27ipv"]
+bg_color = Color(0.0156863, 0.0156863, 0.0313726, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gu274")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -191.5
+offset_top = -237.0
+offset_right = 191.5
+offset_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_27ipv")
+
+[node name="Text" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = -234.0
+offset_right = 186.0
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Text"]
+layout_mode = 0
+offset_right = 366.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_2cr0y")
+theme_override_font_sizes/font_size = 30
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Text"]
+offset_top = 34.0
+offset_right = 366.0
+offset_bottom = 68.0
+theme_override_fonts/font = ExtResource("2_2cr0y")
+theme_override_font_sizes/font_size = 30
+text = "-----------------------"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Text"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 79.0
+offset_right = 341.0
+offset_bottom = 445.0
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Text/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Text/VBoxContainer/HSplitContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2cr0y")
+theme_override_font_sizes/font_size = 20
+text = "Developer"
+
+[node name="Label4" type="Label" parent="Text/VBoxContainer/HSplitContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2cr0y")
+theme_override_font_sizes/font_size = 20
+text = "Charlie"
+horizontal_alignment = 2
+
+[node name="HSplitContainer3" type="HSplitContainer" parent="Text/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Text/VBoxContainer/HSplitContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2cr0y")
+theme_override_font_sizes/font_size = 20
+text = "3D Modeler"
+
+[node name="Label4" type="Label" parent="Text/VBoxContainer/HSplitContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2cr0y")
+theme_override_font_sizes/font_size = 20
+text = "Charlie"
+horizontal_alignment = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="Text/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 6
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="Text/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Text/VBoxContainer/HSplitContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2cr0y")
+theme_override_font_sizes/font_size = 20
+text = "Criticizer"
+
+[node name="Label4" type="Label" parent="Text/VBoxContainer/HSplitContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2cr0y")
+theme_override_font_sizes/font_size = 20
+text = "Carlo"
+horizontal_alignment = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Text/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+
+[node name="Button2" type="Button" parent="Text"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 431.0
+offset_right = 342.0
+offset_bottom = 451.0
+theme_override_fonts/font = ExtResource("2_2cr0y")
+theme_override_styles/focus = ExtResource("1_djqlb")
+theme_override_styles/disabled = ExtResource("1_djqlb")
+theme_override_styles/hover_pressed = ExtResource("1_djqlb")
+theme_override_styles/hover = ExtResource("4_63k6y")
+theme_override_styles/pressed = ExtResource("1_djqlb")
+theme_override_styles/normal = ExtResource("1_djqlb")
+text = "Close"
+
+[connection signal="pressed" from="Text/Button2" to="." method="_on_button_pressed"]

@@ -1,0 +1,208 @@
+[gd_scene load_steps=17 format=3 uid="uid://dy5io3s60egki"]
+
+[ext_resource type="Script" path="res://-Main Menu/main_menu.gd" id="1_gsbf4"]
+[ext_resource type="FontFile" uid="uid://ox7oe5j08pi8" path="res://-Media/¬Fonts/Prompt-Bold.ttf" id="1_nmlwe"]
+[ext_resource type="FontFile" uid="uid://b6rkmc1gihof2" path="res://-Media/¬Fonts/Ubuntu-Bold.ttf" id="2_ypwep"]
+[ext_resource type="PackedScene" uid="uid://bud2j62go3xgj" path="res://-Planes/cessna_172.tscn" id="3_25wbn"]
+[ext_resource type="StyleBox" uid="uid://cjf532kmes4ba" path="res://-Main Menu/¬Styles/Main-Menu-Buttons.tres" id="4_4pqxe"]
+[ext_resource type="StyleBox" uid="uid://b3c78s32vll8t" path="res://-Main Menu/¬Styles/main_menu_hover.tres" id="4_unn2l"]
+[ext_resource type="Script" path="res://-Main Menu/spinning_blades.gd" id="4_xmnuv"]
+[ext_resource type="PackedScene" uid="uid://cdgsb0yy73rn2" path="res://-Main Menu/¬Buttons/Credits.tscn" id="7_8w25w"]
+[ext_resource type="PackedScene" uid="uid://bdoja00qa6rm1" path="res://-Main Menu/¬Buttons/Settings.tscn" id="8_66p7a"]
+
+[sub_resource type="Gradient" id="Gradient_ncuy1"]
+offsets = PackedFloat32Array(0, 0.577922)
+colors = PackedColorArray(0.925353, 0.925353, 0.925353, 1, 0.192157, 0.776471, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vm1l2"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q1q8u"]
+width = 1200
+height = 700
+color_ramp = SubResource("Gradient_ncuy1")
+noise = SubResource("FastNoiseLite_vm1l2")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_arcpq"]
+viewport_path = NodePath("Plane/SubViewport")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1ov1u"]
+sky_top_color = Color(0.321569, 0.384314, 0.784314, 1)
+sky_horizon_color = Color(0.45098, 0.654902, 0.670588, 1)
+sky_energy_multiplier = 0.2
+ground_bottom_color = Color(0.321569, 0.384314, 0.784314, 1)
+ground_horizon_color = Color(0.321569, 0.384314, 0.784314, 1)
+ground_energy_multiplier = 0.2
+sun_angle_max = 9.0
+energy_multiplier = 0.2
+
+[sub_resource type="Sky" id="Sky_qjtwp"]
+sky_material = SubResource("ProceduralSkyMaterial_1ov1u")
+
+[sub_resource type="Environment" id="Environment_0pppi"]
+background_mode = 2
+sky = SubResource("Sky_qjtwp")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_gsbf4")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+offset_left = -14.0
+offset_right = 1186.0
+offset_bottom = 512.0
+texture = SubResource("NoiseTexture2D_q1q8u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+texture_filter = 1
+position = Vector2(751, 350)
+scale = Vector2(2, 2)
+texture = SubResource("ViewportTexture_arcpq")
+
+[node name="Camera" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="Camera"]
+position = Vector2(576, 324)
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Buttons"]
+offset_right = 408.0
+offset_bottom = 644.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Buttons/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+
+[node name="Label" type="Label" parent="Buttons/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.811765, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.47451, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0.0465177, 0.14727, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_nmlwe")
+theme_override_font_sizes/font_size = 50
+text = "Blocky Flight"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Buttons"]
+offset_left = 61.0
+offset_top = 273.0
+offset_right = 382.0
+offset_bottom = 543.0
+
+[node name="Start" type="Button" parent="Buttons/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ypwep")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = ExtResource("4_4pqxe")
+theme_override_styles/hover = ExtResource("4_unn2l")
+theme_override_styles/normal = ExtResource("4_4pqxe")
+text = "Start"
+expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Buttons/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Settings" type="Button" parent="Buttons/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ypwep")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = ExtResource("4_4pqxe")
+theme_override_styles/hover = ExtResource("4_unn2l")
+theme_override_styles/normal = ExtResource("4_4pqxe")
+text = "Settings"
+expand_icon = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="Buttons/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Credits" type="Button" parent="Buttons/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ypwep")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = ExtResource("4_4pqxe")
+theme_override_styles/hover = ExtResource("4_unn2l")
+theme_override_styles/normal = ExtResource("4_4pqxe")
+text = "Credits"
+expand_icon = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="Buttons/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Quit" type="Button" parent="Buttons/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ypwep")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = ExtResource("4_4pqxe")
+theme_override_styles/hover = ExtResource("4_unn2l")
+theme_override_styles/normal = ExtResource("4_4pqxe")
+text = "Quit
+"
+expand_icon = true
+
+[node name="Plane" type="Node3D" parent="."]
+
+[node name="SubViewport" type="SubViewport" parent="Plane"]
+transparent_bg = true
+
+[node name="Camera3D" type="Camera3D" parent="Plane/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.927393, -0.374089, 0, 0.374089, 0.927393, -0.632107, 6.70512, 3.50396)
+
+[node name="Cessna 172" parent="Plane/SubViewport" instance=ExtResource("3_25wbn")]
+transform = Transform3D(-0.797078, 0, -0.603876, 0, 1, 0, 0.603876, 0, -0.797078, -0.620497, 7.31071, 0)
+gravity_scale = 0.0
+
+[node name="Blades" parent="Plane/SubViewport/Cessna 172/Moving" index="3"]
+script = ExtResource("4_xmnuv")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Plane/SubViewport"]
+environment = SubResource("Environment_0pppi")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Plane/SubViewport"]
+transform = Transform3D(-0.866025, -0.492404, -0.0868241, 0, -0.173648, 0.984808, -0.5, 0.852868, 0.150384, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 150.0
+offset_top = 115.0
+offset_right = 469.0
+offset_bottom = 192.0
+theme_override_colors/font_color = Color(0, 0.811765, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.47451, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0.0465177, 0.14727, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_nmlwe")
+theme_override_font_sizes/font_size = 20
+text = "Early Access"
+horizontal_alignment = 1
+
+[node name="Others" type="Node2D" parent="."]
+
+[node name="Credits" parent="Others" instance=ExtResource("7_8w25w")]
+offset_left = 561.0
+offset_top = 334.0
+offset_right = 561.0
+offset_bottom = 334.0
+
+[node name="Settings" parent="Others" instance=ExtResource("8_66p7a")]
+offset_left = 561.0
+offset_top = 334.0
+offset_right = 561.0
+offset_bottom = 334.0
+
+[connection signal="pressed" from="Buttons/VBoxContainer2/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Buttons/VBoxContainer2/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Buttons/VBoxContainer2/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Buttons/VBoxContainer2/Quit" to="." method="_on_quit_pressed"]
+
+[editable path="Plane/SubViewport/Cessna 172"]
