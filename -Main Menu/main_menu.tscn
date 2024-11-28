@@ -200,6 +200,18 @@ offset_top = 334.0
 offset_right = 561.0
 offset_bottom = 334.0
 
+[node name="Version" type="Node2D" parent="."]
+
+[node name="Version" type="Label" parent="Version"]
+offset_left = 1011.0
+offset_top = 624.0
+offset_right = 1149.0
+offset_bottom = 654.0
+theme_override_fonts/font = ExtResource("2_ypwep")
+theme_override_font_sizes/font_size = 20
+text = "0.1.1.2"
+horizontal_alignment = 2
+
 [connection signal="pressed" from="Buttons/VBoxContainer2/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Buttons/VBoxContainer2/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Buttons/VBoxContainer2/Credits" to="." method="_on_credits_pressed"]

@@ -62,6 +62,7 @@ text = "Credits"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Text"]
+layout_mode = 0
 offset_top = 34.0
 offset_right = 366.0
 offset_bottom = 68.0
@@ -93,22 +94,6 @@ theme_override_font_sizes/font_size = 20
 text = "Charlie"
 horizontal_alignment = 2
 
-[node name="HSplitContainer3" type="HSplitContainer" parent="Text/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label3" type="Label" parent="Text/VBoxContainer/HSplitContainer3"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_2cr0y")
-theme_override_font_sizes/font_size = 20
-text = "3D Modeler"
-
-[node name="Label4" type="Label" parent="Text/VBoxContainer/HSplitContainer3"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_2cr0y")
-theme_override_font_sizes/font_size = 20
-text = "Charlie"
-horizontal_alignment = 2
-
 [node name="MarginContainer3" type="MarginContainer" parent="Text/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 6
@@ -130,6 +115,10 @@ text = "Carlo"
 horizontal_alignment = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="Text/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+
+[node name="MarginContainer4" type="MarginContainer" parent="Text/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 4
 

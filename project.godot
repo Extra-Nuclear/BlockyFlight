@@ -13,9 +13,9 @@ config_version=5
 config/name="Blocky Flight"
 run/main_scene="res://-Main Menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-boot_splash/bg_color=Color(0.0728426, 0.0728426, 0.0728426, 1)
-boot_splash/image="res://-Media/logo.png"
-config/icon="res://-Media/icon.png"
+boot_splash/bg_color=Color(0.0430392, 0.0430392, 0.0430391, 1)
+boot_splash/image="res://-Media/BF_logo.png"
+config/icon="res://-Media/New Piskel.png"
 
 [display]
 
@@ -84,3 +84,7 @@ plane_thrust_down={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
 ]
 }
+
+[layer_names]
+
+3d_physics/layer_2="Interaction"

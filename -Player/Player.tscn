@@ -8,7 +8,8 @@ radius = 0.42
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jaqdu"]
 radius = 0.42
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 3
 script = ExtResource("1_jrqim")
 
 [node name="Body" type="MeshInstance3D" parent="."]
