@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu2hixfhu8ndm"]
+
+[ext_resource type="Texture2D" uid="uid://btekexp2jh7kq" path="res://example/ui/panel_bg9.png" id="1"]
+[ext_resource type="Script" path="res://example/ui/UIEnginePower/UIEnginePower.gd" id="2"]
+
+[node name="UIEnginePower" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 128.0
+script = ExtResource("2")
+
+[node name="Panel" type="NinePatchRect" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("1")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="PowerBar" type="ColorRect" parent="Panel"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 22.0
+offset_right = 34.0
+offset_bottom = 106.0
+color = Color(0, 0, 0, 1)
+
+[node name="Cursor" type="ColorRect" parent="Panel/PowerBar"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.0
+offset_top = 80.0
+offset_right = 16.0
+offset_bottom = 84.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 5.0
+offset_right = 54.0
+offset_bottom = 19.0
+theme_override_font_sizes/font_size = 10
+text = "Engine"
+horizontal_alignment = 1
+
+[node name="OnlineBox" type="ColorRect" parent="Panel"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -12.5
+offset_top = -16.0
+offset_right = 12.5
+offset_bottom = -8.0
+color = Color(1, 0, 0, 1)

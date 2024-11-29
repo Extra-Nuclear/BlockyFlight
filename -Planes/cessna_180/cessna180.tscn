@@ -1,0 +1,185 @@
+[gd_scene load_steps=23 format=3 uid="uid://cpjp2kre52al3"]
+
+[ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/core/aero_body_3d.gd" id="1_yoh33"]
+[ext_resource type="PackedScene" uid="uid://66jn0jhwtsrh" path="res://-Planes/cessna_180/cessna_180_skywagon.glb" id="2_403be"]
+[ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/core/aero_influencer_3d/aero_surface_3d/manual_aero_surface_3d/manual_aero_surface_3d.gd" id="3_gt6qe"]
+[ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/core/aero_influencer_3d/aero_surface_3d/manual_aero_surface_3d/manual_aero_surface_config.gd" id="4_hpisc"]
+[ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/core/aero_influencer_3d/aero_surface_3d/aero_surface_config.gd" id="5_q085y"]
+[ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/components/AeroControlComponent.gd" id="6_xs8ep"]
+[ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/core/aero_influencer_3d/aero_rotator_3d/aero_propeller_3d.gd" id="7_wsuld"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tpl3y"]
+size = Vector3(7.48657, 1, 1)
+
+[sub_resource type="Curve" id="Curve_8f2jj"]
+bake_resolution = 21
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0, Vector2(0.75, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_5ftvw"]
+min_value = 1.0
+max_value = 1.69
+bake_resolution = 23
+_data = [Vector2(0.07, 1), 0.0, 0.0, 0, 0, Vector2(0.088, 1.519), 0.0, 0.0, 0, 0, Vector2(0.119, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_q8l5j"]
+min_value = -1.0
+bake_resolution = 36
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.125, 1), 0.0, 0.0, 0, 0, Vector2(0.25, 1.45519e-11), 0.0, 0.0, 0, 0, Vector2(0.375, -0.4), 0.0, 0.0, 0, 0, Vector2(0.415, -1), 0.0, 0.0, 0, 0, Vector2(0.585, 1), 0.0, 0.0, 0, 0, Vector2(0.625, 0.4), 0.0, 0.0, 0, 0, Vector2(0.75, 1.45519e-11), 0.0, 0.0, 0, 0, Vector2(0.875, -1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 10
+
+[sub_resource type="Curve" id="Curve_8l8wg"]
+bake_resolution = 4
+_data = [Vector2(0, 1), 0.0, -2.09824, 0, 0, Vector2(0.406542, 0.490909), -0.666575, -0.666575, 0, 0, Vector2(1, 0.290909), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Resource" id="Resource_dfpyt"]
+script = ExtResource("4_hpisc")
+min_lift_coefficient = -1.0
+max_lift_coefficient = 1.0
+lift_aoa_curve = SubResource("Curve_q8l5j")
+min_drag_coefficient = 0.0
+max_drag_coefficient = 1.0
+drag_aoa_curve = SubResource("Curve_8f2jj")
+sweep_drag_multiplier_curve = SubResource("Curve_8l8wg")
+drag_at_mach_multiplier_curve = SubResource("Curve_5ftvw")
+
+[sub_resource type="Resource" id="Resource_kf82k"]
+script = ExtResource("5_q085y")
+chord = 0.25
+span = 1.25
+auto_aspect_ratio = true
+aspect_ratio = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_53aqn"]
+
+[sub_resource type="Curve" id="Curve_5rv2l"]
+bake_resolution = 21
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0, Vector2(0.75, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_e1ylw"]
+min_value = 1.0
+max_value = 1.69
+bake_resolution = 23
+_data = [Vector2(0.07, 1), 0.0, 0.0, 0, 0, Vector2(0.088, 1.519), 0.0, 0.0, 0, 0, Vector2(0.119, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_01o3f"]
+min_value = -1.0
+bake_resolution = 36
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.125, 1), 0.0, 0.0, 0, 0, Vector2(0.25, 1.45519e-11), 0.0, 0.0, 0, 0, Vector2(0.375, -0.4), 0.0, 0.0, 0, 0, Vector2(0.415, -1), 0.0, 0.0, 0, 0, Vector2(0.585, 1), 0.0, 0.0, 0, 0, Vector2(0.625, 0.4), 0.0, 0.0, 0, 0, Vector2(0.75, 1.45519e-11), 0.0, 0.0, 0, 0, Vector2(0.875, -1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 10
+
+[sub_resource type="Curve" id="Curve_kcuiw"]
+bake_resolution = 4
+_data = [Vector2(0, 1), 0.0, -2.09824, 0, 0, Vector2(0.406542, 0.490909), -0.666575, -0.666575, 0, 0, Vector2(1, 0.290909), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Resource" id="Resource_4sxqv"]
+script = ExtResource("4_hpisc")
+min_lift_coefficient = -1.0
+max_lift_coefficient = 1.0
+lift_aoa_curve = SubResource("Curve_01o3f")
+min_drag_coefficient = 0.0
+max_drag_coefficient = 1.0
+drag_aoa_curve = SubResource("Curve_5rv2l")
+sweep_drag_multiplier_curve = SubResource("Curve_kcuiw")
+drag_at_mach_multiplier_curve = SubResource("Curve_e1ylw")
+
+[sub_resource type="Resource" id="Resource_klvfg"]
+script = ExtResource("5_q085y")
+chord = 1.5
+span = 5.0
+auto_aspect_ratio = true
+aspect_ratio = 3.33333
+
+[sub_resource type="Resource" id="Resource_2jjyp"]
+script = ExtResource("5_q085y")
+chord = 0.935
+span = 1.55
+auto_aspect_ratio = true
+aspect_ratio = 1.65775
+
+[node name="cessna180" type="VehicleBody3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+center_of_mass_mode = 1
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("1_yoh33")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0540771, 0, 0)
+shape = SubResource("BoxShape3D_tpl3y")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_403be")]
+
+[node name="AeroControlComponent" type="Node" parent="."]
+script = ExtResource("6_xs8ep")
+pitch_up_event = &"plane_pitch_up"
+pitch_down_event = &"plane_pitch_down"
+yaw_left_event = &"plane_yaw_left"
+yaw_right_event = &"plane_yaw_left"
+cumulative_throttle_up_event = &"plane_thrust_up"
+cumulative_throttle_down_event = &"plane_thrust_down"
+
+[node name="AeroPropeller3D" type="Node3D" parent="." node_paths=PackedStringArray("propeller_blade")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, -3.6853, -0.256483, 1.6109e-07)
+script = ExtResource("7_wsuld")
+propeller_blade = NodePath("ManualAeroSurface3D")
+angular_motor = Vector3(150, 0, 0)
+
+[node name="ManualAeroSurface3D" type="Node3D" parent="AeroPropeller3D"]
+transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, -0.0996966, 0.616088, 4.8761e-05)
+script = ExtResource("3_gt6qe")
+manual_config = SubResource("Resource_dfpyt")
+wing_config = SubResource("Resource_kf82k")
+enable_automatic_control = false
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="AeroPropeller3D/ManualAeroSurface3D"]
+transform = Transform3D(1.16187, -4.69245e-38, 0, -8.74097e-37, 0.085052, -2.11758e-22, -7.57306e-29, -1.32349e-22, 0.207217, -0.033091, -1.44428e-09, 0.0548532)
+mesh = SubResource("BoxMesh_53aqn")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, -0.331618, 0.943414, 0, 0.943414, 0.331618, -1, 1.44955e-08, -4.12379e-08, 6.33562, 3.21629, -2.76939e-07)
+
+[node name="Left Wing" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.66293, 0.484652, 2.93185)
+script = ExtResource("3_gt6qe")
+manual_config = SubResource("Resource_4sxqv")
+wing_config = SubResource("Resource_klvfg")
+max_actuation = Vector3(0.1, 0, 0)
+roll_contribution = Vector3(-1, 0, 0)
+
+[node name="Right Wing" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.66293, 0.484652, -2.93863)
+script = ExtResource("3_gt6qe")
+manual_config = SubResource("Resource_4sxqv")
+wing_config = SubResource("Resource_klvfg")
+max_actuation = Vector3(0.1, 0, 0)
+roll_contribution = Vector3(1, 0, 0)
+
+[node name="Right Aelron" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.74182, 0.0460092, -0.93512)
+script = ExtResource("3_gt6qe")
+manual_config = SubResource("Resource_4sxqv")
+wing_config = SubResource("Resource_2jjyp")
+max_actuation = Vector3(0.1, 0, 0)
+pitch_contribution = Vector3(-1, 0, 0)
+
+[node name="Left Aelron" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.74182, 0.0460092, 0.954647)
+script = ExtResource("3_gt6qe")
+manual_config = SubResource("Resource_4sxqv")
+wing_config = SubResource("Resource_2jjyp")
+max_actuation = Vector3(0.1, 0, 0)
+pitch_contribution = Vector3(-1, 0, 0)
+
+[node name="Rudder" type="Node3D" parent="."]
+transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 2.81615, 0.676244, -0.00507447)
+script = ExtResource("3_gt6qe")
+manual_config = SubResource("Resource_4sxqv")
+wing_config = SubResource("Resource_2jjyp")
+
+[editable path="Sketchfab_Scene"]

@@ -1,0 +1,730 @@
+[gd_scene load_steps=71 format=3 uid="uid://di4mmbdu6qiv1"]
+
+[ext_resource type="Script" path="res://example/Example1_Simple.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://cvxa8h3yftguj" path="res://example/sfx/aircraft_modules/landing_gear/deploy.wav" id="2"]
+[ext_resource type="AudioStream" uid="uid://ch1k8klfyw0mq" path="res://example/sfx/aircraft_modules/landing_gear/stow.wav" id="3"]
+[ext_resource type="PackedScene" path="res://addons/simplified_flightsim/aircraft_modules/EnergyContainer/EnergyContainer.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://dsel16gi76dnm" path="res://example/ui/UIEnergyContainer/UIFuelLevel.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://addons/simplified_flightsim/aircraft_modules/Controls/ControlSteering.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://d0mgf4yjnwxgl" path="res://addons/simplified_flightsim/Aircraft/Aircraft.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://addons/simplified_flightsim/aircraft_modules/Controls/ControlEngine.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://bpna5btnwpvpr" path="res://example/scenes/Airplane/visuals/Engine/Engine.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://bu2hixfhu8ndm" path="res://example/ui/UIEnginePower/UIEnginePower.tscn" id="10"]
+[ext_resource type="PackedScene" path="res://addons/simplified_flightsim/aircraft_modules/Engine/Engine.tscn" id="11"]
+[ext_resource type="PackedScene" path="res://example/scenes/CameraTripod/CameraTripod.tscn" id="12"]
+[ext_resource type="PackedScene" path="res://addons/simplified_flightsim/aircraft_modules/Steering/Steering.tscn" id="13"]
+[ext_resource type="PackedScene" path="res://example/scenes/Airplane/visuals/Flaps/Flaps.tscn" id="15"]
+[ext_resource type="PackedScene" path="res://addons/simplified_flightsim/aircraft_modules/LandingGear/LandingGear.tscn" id="16"]
+[ext_resource type="PackedScene" path="res://addons/simplified_flightsim/aircraft_modules/Controls/ControlLandingGear.tscn" id="17"]
+[ext_resource type="PackedScene" path="res://addons/simplified_flightsim/aircraft_modules/Controls/ControlFlaps.tscn" id="18"]
+[ext_resource type="PackedScene" uid="uid://nhbm7re0glcb" path="res://example/scenes/Airplane/visuals/LandingGear/LandingGear.tscn" id="19"]
+[ext_resource type="PackedScene" path="res://addons/simplified_flightsim/aircraft_modules/Instruments/InstrumentAttitude.tscn" id="20"]
+[ext_resource type="Texture2D" uid="uid://bo81iive6ulsl" path="res://example/textures/kenney_prototypetextures/PNG/Light/texture_06.png" id="21_q2ulu"]
+[ext_resource type="PackedScene" uid="uid://bmut2y2xaqj6x" path="res://example/ui/UIAltSpeed/UIAltSpeed.tscn" id="22"]
+[ext_resource type="Texture2D" uid="uid://d3w7kvckn8jf6" path="res://example/textures/faux_asphalt/ground_asphalt_synth_12.png" id="22_rjld5"]
+[ext_resource type="PackedScene" uid="uid://c4dncgm8qjt7u" path="res://example/ui/UIFlaps/UIFlaps.tscn" id="23"]
+[ext_resource type="PackedScene" path="res://addons/simplified_flightsim/aircraft_modules/Flaps/Flaps.tscn" id="24"]
+[ext_resource type="PackedScene" uid="uid://b8s77ar81hq22" path="res://example/ui/UILandingGear/UILandingGear.tscn" id="25"]
+[ext_resource type="PackedScene" uid="uid://dhg4sb4ifrvh8" path="res://example/ui/UIAttitude/UIAttitude.tscn" id="26"]
+[ext_resource type="AudioStream" uid="uid://cqkqskpah2gx7" path="res://example/sfx/aircraft_modules/flaps/flap_loop.ogg" id="27"]
+[ext_resource type="PackedScene" path="res://example/scenes/Airplane/visuals/Steering/Steering.tscn" id="28"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ryrq1"]
+
+[sub_resource type="Sky" id="Sky_8e340"]
+sky_material = SubResource("ProceduralSkyMaterial_ryrq1")
+
+[sub_resource type="Environment" id="Environment_sg2lb"]
+background_mode = 2
+sky = SubResource("Sky_8e340")
+
+[sub_resource type="CapsuleMesh" id="4"]
+radius = 0.7
+height = 4.0
+radial_segments = 16
+rings = 2
+
+[sub_resource type="CylinderMesh" id="5"]
+bottom_radius = 0.3
+height = 2.5
+radial_segments = 16
+rings = 1
+
+[sub_resource type="BoxMesh" id="6"]
+size = Vector3(8, 0.1, 1.5)
+
+[sub_resource type="BoxMesh" id="7"]
+size = Vector3(3, 0.1, 0.5)
+
+[sub_resource type="BoxMesh" id="8"]
+size = Vector3(0.1, 1, 0.5)
+
+[sub_resource type="BoxShape3D" id="9"]
+size = Vector3(8, 1, 6)
+
+[sub_resource type="BoxShape3D" id="19"]
+size = Vector3(1.6, 1.4, 3.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ldf4x"]
+albedo_color = Color(0.129412, 0.65098, 0.380392, 1)
+albedo_texture = ExtResource("21_q2ulu")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_myovo"]
+albedo_color = Color(1, 1, 0.811765, 1)
+albedo_texture = ExtResource("21_q2ulu")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="PlaneMesh" id="1"]
+material = SubResource("StandardMaterial3D_myovo")
+size = Vector2(640, 640)
+
+[sub_resource type="BoxShape3D" id="3"]
+size = Vector3(640, 2, 640)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ggaxk"]
+albedo_color = Color(0.839216, 0.72549, 0.611765, 1)
+
+[sub_resource type="BoxMesh" id="10"]
+size = Vector3(10, 3, 6)
+
+[sub_resource type="ConvexPolygonShape3D" id="11"]
+points = PackedVector3Array(-5, -1.5, -3, -5, 1.5, -3, 5, -1.5, -3, -5, -1.5, 3, -5, 1.5, 3, 5, 1.5, -3, 5, -1.5, 3, 5, 1.5, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cnded"]
+albedo_color = Color(0.666667, 0.4, 0.337255, 1)
+
+[sub_resource type="PrismMesh" id="12"]
+size = Vector3(7, 2, 10)
+
+[sub_resource type="ConvexPolygonShape3D" id="14"]
+points = PackedVector3Array(3.5, -1, 5, 0, 1, 5, -3.5, -1, 5, 3.5, -1, -5, 0, 1, -5, -3.5, -1, -5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ilvfk"]
+albedo_color = Color(0.839216, 0.72549, 0.611765, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2b8lc"]
+albedo_color = Color(0.839216, 0.72549, 0.611765, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mgkcv"]
+albedo_color = Color(0.839216, 0.72549, 0.611765, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_re1rg"]
+albedo_color = Color(0.839216, 0.72549, 0.611765, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n34sh"]
+albedo_color = Color(0.839216, 0.72549, 0.611765, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdst2"]
+albedo_color = Color(0.839216, 0.72549, 0.611765, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dwntw"]
+albedo_color = Color(0.839216, 0.72549, 0.611765, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_urqcn"]
+albedo_color = Color(0.839216, 0.72549, 0.611765, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vj7ux"]
+albedo_color = Color(0.839216, 0.72549, 0.611765, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3a1o2"]
+albedo_color = Color(0.34902, 0.454902, 0.458824, 1)
+
+[sub_resource type="BoxMesh" id="15"]
+size = Vector3(10, 15, 8)
+
+[sub_resource type="ConvexPolygonShape3D" id="16"]
+points = PackedVector3Array(-5, -7.5, -4, -5, -7.5, 4, -5, 7.5, -4, 5, -7.5, -4, 5, -7.5, 4, -5, 7.5, 4, 5, 7.5, -4, 5, 7.5, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wgruu"]
+albedo_color = Color(0.34902, 0.454902, 0.458824, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mc13v"]
+albedo_color = Color(0.34902, 0.454902, 0.458824, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_drtov"]
+albedo_color = Color(0.27451, 0.439216, 0.639216, 1)
+
+[sub_resource type="BoxMesh" id="17"]
+size = Vector3(12, 30, 15)
+
+[sub_resource type="ConvexPolygonShape3D" id="18"]
+points = PackedVector3Array(6, 15, 7.5, -6, 15, 7.5, 6, -15, 7.5, 6, 15, -7.5, -6, 15, -7.5, -6, -15, 7.5, 6, -15, -7.5, -6, -15, -7.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ot0j3"]
+albedo_texture = ExtResource("22_rjld5")
+uv1_scale = Vector3(3, 10, 1)
+
+[sub_resource type="BoxMesh" id="21"]
+material = SubResource("StandardMaterial3D_ot0j3")
+size = Vector3(20, 0.5, 100)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_c3uvg"]
+friction = 0.5
+
+[sub_resource type="BoxShape3D" id="23"]
+size = Vector3(20, 0.5, 100)
+
+[sub_resource type="BoxShape3D" id="24"]
+size = Vector3(10, 8, 90)
+
+[node name="Example" type="Node3D"]
+script = ExtResource("1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_sg2lb")
+
+[node name="Aircraft" parent="." instance=ExtResource("7")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.163289, 1.86217, -262.061)
+center_of_mass_mode = 1
+
+[node name="Model" type="Node3D" parent="Aircraft"]
+
+[node name="StaticParts" type="Node3D" parent="Aircraft/Model"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Aircraft/Model/StaticParts"]
+transform = Transform3D(1, -8.74228e-08, 8.74228e-08, 8.74228e-08, -4.37114e-08, -1, 8.74228e-08, 1, -4.37114e-08, 0, 0, -1.0191)
+mesh = SubResource("4")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance2" type="MeshInstance3D" parent="Aircraft/Model/StaticParts"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 1.33447)
+mesh = SubResource("5")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3" type="MeshInstance3D" parent="Aircraft/Model/StaticParts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.292487, -0.559304)
+mesh = SubResource("6")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance4" type="MeshInstance3D" parent="Aircraft/Model/StaticParts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0388618, 2.33686)
+mesh = SubResource("7")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance5" type="MeshInstance3D" parent="Aircraft/Model/StaticParts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.591909, 2.33686)
+mesh = SubResource("8")
+skeleton = NodePath("../..")
+
+[node name="MovingParts" type="Node3D" parent="Aircraft/Model"]
+
+[node name="Engine" parent="Aircraft/Model/MovingParts" instance=ExtResource("9")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.60584)
+
+[node name="Steering" parent="Aircraft/Model/MovingParts" instance=ExtResource("28")]
+
+[node name="LandingGear" parent="Aircraft/Model/MovingParts" instance=ExtResource("19")]
+
+[node name="Flaps" parent="Aircraft/Model/MovingParts" instance=ExtResource("15")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Aircraft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49012e-08, 0.015686, -0.22049)
+shape = SubResource("9")
+
+[node name="LandingGearCollisionShape" type="CollisionShape3D" parent="Aircraft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49012e-08, -0.872238, -0.800049)
+shape = SubResource("19")
+
+[node name="EnergyContainer" parent="Aircraft" instance=ExtResource("4")]
+UINode = NodePath("../../Interface/UIFuelLevel")
+
+[node name="Engine" parent="Aircraft" instance=ExtResource("11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.45058e-08, 0, 0)
+UINode = NodePath("../../Interface/UIEnginePower")
+ProcessPhysics = true
+
+[node name="Steering" parent="Aircraft" instance=ExtResource("13")]
+
+[node name="Flaps" parent="Aircraft" instance=ExtResource("24")]
+UINode = NodePath("../../Interface/UIFlaps")
+FlapSoundLoop = ExtResource("27")
+
+[node name="LandingGear" parent="Aircraft" instance=ExtResource("16")]
+GearCollisionShape = NodePath("../LandingGearCollisionShape")
+InitialState = 1
+DeploySound = ExtResource("2")
+StowSound = ExtResource("3")
+UINode = NodePath("../../Interface/UILandingGear")
+
+[node name="ControlEngine" parent="Aircraft" instance=ExtResource("8")]
+
+[node name="ControlSteering" parent="Aircraft" instance=ExtResource("6")]
+
+[node name="ControlLandingGear" parent="Aircraft" instance=ExtResource("17")]
+
+[node name="ControlFlaps" parent="Aircraft" instance=ExtResource("18")]
+
+[node name="InstrumentAttitude" parent="Aircraft" instance=ExtResource("20")]
+UINode = NodePath("../../Interface/UIAttitude")
+
+[node name="CameraTripod" parent="." instance=ExtResource("12")]
+TargetNode = NodePath("../Aircraft")
+
+[node name="Scenario" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Scenario"]
+transform = Transform3D(-1, 5.01437e-08, -7.16125e-08, 0, 0.819152, 0.573577, 8.74228e-08, 0.573577, -0.819152, 0, 124.741, 0)
+light_energy = 0.2
+shadow_enabled = true
+directional_shadow_max_distance = 200.0
+
+[node name="Floor" type="MeshInstance3D" parent="Scenario"]
+material_override = SubResource("StandardMaterial3D_ldf4x")
+mesh = SubResource("1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenario/Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Floor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("3")
+
+[node name="Wall1" type="MeshInstance3D" parent="Scenario"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 160, -597)
+mesh = SubResource("1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenario/Wall1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Wall1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("3")
+
+[node name="Wall2" type="MeshInstance3D" parent="Scenario"]
+transform = Transform3D(-1, -4.37114e-08, -7.57103e-08, 0, 0.866025, -0.5, 8.74228e-08, -0.5, -0.866025, 0, 160, 597)
+mesh = SubResource("1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenario/Wall2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Wall2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("3")
+
+[node name="Wall3" type="MeshInstance3D" parent="Scenario"]
+transform = Transform3D(-4.37114e-08, 0.5, 0.866025, 0, 0.866025, -0.5, -1, -2.18557e-08, -3.78552e-08, -597, 160, 0)
+mesh = SubResource("1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenario/Wall3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Wall3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("3")
+
+[node name="Wall4" type="MeshInstance3D" parent="Scenario"]
+transform = Transform3D(-4.37114e-08, -0.5, -0.866025, 0, 0.866025, -0.5, 1, -2.18557e-08, -3.78552e-08, 597, 160, 0)
+mesh = SubResource("1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenario/Wall4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Wall4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("3")
+
+[node name="Houseblock" type="Node3D" parent="Scenario"]
+
+[node name="House1" type="StaticBody3D" parent="Scenario/Houseblock"]
+
+[node name="House1" type="MeshInstance3D" parent="Scenario/Houseblock/House1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+material_override = SubResource("StandardMaterial3D_ggaxk")
+mesh = SubResource("10")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Houseblock/House1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("11")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Houseblock/House1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0)
+material_override = SubResource("StandardMaterial3D_cnded")
+mesh = SubResource("12")
+
+[node name="CollisionShape2" type="CollisionShape3D" parent="Scenario/Houseblock/House1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0)
+shape = SubResource("14")
+
+[node name="House5" type="StaticBody3D" parent="Scenario/Houseblock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2372, 0, -5.54142)
+
+[node name="House1" type="MeshInstance3D" parent="Scenario/Houseblock/House5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+material_override = SubResource("StandardMaterial3D_ilvfk")
+mesh = SubResource("10")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Houseblock/House5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("11")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Houseblock/House5"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0)
+material_override = SubResource("StandardMaterial3D_cnded")
+mesh = SubResource("12")
+
+[node name="CollisionShape2" type="CollisionShape3D" parent="Scenario/Houseblock/House5"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0)
+shape = SubResource("14")
+
+[node name="House2" type="StaticBody3D" parent="Scenario/Houseblock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.0455)
+
+[node name="House1" type="MeshInstance3D" parent="Scenario/Houseblock/House2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+material_override = SubResource("StandardMaterial3D_2b8lc")
+mesh = SubResource("10")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Houseblock/House2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("11")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Houseblock/House2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0)
+material_override = SubResource("StandardMaterial3D_cnded")
+mesh = SubResource("12")
+
+[node name="CollisionShape2" type="CollisionShape3D" parent="Scenario/Houseblock/House2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0)
+shape = SubResource("14")
+
+[node name="House3" type="StaticBody3D" parent="Scenario/Houseblock"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.26552, 0, -10.2473)
+
+[node name="House1" type="MeshInstance3D" parent="Scenario/Houseblock/House3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+material_override = SubResource("StandardMaterial3D_mgkcv")
+mesh = SubResource("10")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Houseblock/House3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("11")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Houseblock/House3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0)
+material_override = SubResource("StandardMaterial3D_cnded")
+mesh = SubResource("12")
+
+[node name="CollisionShape2" type="CollisionShape3D" parent="Scenario/Houseblock/House3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0)
+shape = SubResource("14")
+
+[node name="House4" type="StaticBody3D" parent="Scenario/Houseblock"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.0725, 0, 5.81823)
+
+[node name="House1" type="MeshInstance3D" parent="Scenario/Houseblock/House4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+material_override = SubResource("StandardMaterial3D_re1rg")
+mesh = SubResource("10")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Houseblock/House4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("11")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Houseblock/House4"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0)
+material_override = SubResource("StandardMaterial3D_cnded")
+mesh = SubResource("12")
+
+[node name="CollisionShape2" type="CollisionShape3D" parent="Scenario/Houseblock/House4"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0)
+shape = SubResource("14")
+
+[node name="Houseblock2" type="Node3D" parent="Scenario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0274, 0, 38.3552)
+
+[node name="House1" type="StaticBody3D" parent="Scenario/Houseblock2"]
+
+[node name="House1" type="MeshInstance3D" parent="Scenario/Houseblock2/House1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+material_override = SubResource("StandardMaterial3D_n34sh")
+mesh = SubResource("10")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Houseblock2/House1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("11")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Houseblock2/House1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0)
+material_override = SubResource("StandardMaterial3D_cnded")
+mesh = SubResource("12")
+
+[node name="CollisionShape2" type="CollisionShape3D" parent="Scenario/Houseblock2/House1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0)
+shape = SubResource("14")
+
+[node name="House5" type="StaticBody3D" parent="Scenario/Houseblock2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2372, 0, -5.54142)
+
+[node name="House1" type="MeshInstance3D" parent="Scenario/Houseblock2/House5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+material_override = SubResource("StandardMaterial3D_xdst2")
+mesh = SubResource("10")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Houseblock2/House5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("11")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Houseblock2/House5"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0)
+material_override = SubResource("StandardMaterial3D_cnded")
+mesh = SubResource("12")
+
+[node name="CollisionShape2" type="CollisionShape3D" parent="Scenario/Houseblock2/House5"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0)
+shape = SubResource("14")
+
+[node name="House2" type="StaticBody3D" parent="Scenario/Houseblock2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.0455)
+
+[node name="House1" type="MeshInstance3D" parent="Scenario/Houseblock2/House2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+material_override = SubResource("StandardMaterial3D_dwntw")
+mesh = SubResource("10")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Houseblock2/House2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("11")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Houseblock2/House2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0)
+material_override = SubResource("StandardMaterial3D_cnded")
+mesh = SubResource("12")
+
+[node name="CollisionShape2" type="CollisionShape3D" parent="Scenario/Houseblock2/House2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0)
+shape = SubResource("14")
+
+[node name="House3" type="StaticBody3D" parent="Scenario/Houseblock2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.26552, 0, -10.2473)
+
+[node name="House1" type="MeshInstance3D" parent="Scenario/Houseblock2/House3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+material_override = SubResource("StandardMaterial3D_urqcn")
+mesh = SubResource("10")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Houseblock2/House3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("11")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Houseblock2/House3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0)
+material_override = SubResource("StandardMaterial3D_cnded")
+mesh = SubResource("12")
+
+[node name="CollisionShape2" type="CollisionShape3D" parent="Scenario/Houseblock2/House3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0)
+shape = SubResource("14")
+
+[node name="House4" type="StaticBody3D" parent="Scenario/Houseblock2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.0725, 0, 5.81823)
+
+[node name="House1" type="MeshInstance3D" parent="Scenario/Houseblock2/House4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+material_override = SubResource("StandardMaterial3D_vj7ux")
+mesh = SubResource("10")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Houseblock2/House4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("11")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Houseblock2/House4"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0)
+material_override = SubResource("StandardMaterial3D_cnded")
+mesh = SubResource("12")
+
+[node name="CollisionShape2" type="CollisionShape3D" parent="Scenario/Houseblock2/House4"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0)
+shape = SubResource("14")
+
+[node name="Building" type="StaticBody3D" parent="Scenario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58694, 0, 25.479)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Building"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+material_override = SubResource("StandardMaterial3D_3a1o2")
+mesh = SubResource("15")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Building"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("16")
+
+[node name="Building3" type="StaticBody3D" parent="Scenario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.7894, 0, -10.2142)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Building3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+material_override = SubResource("StandardMaterial3D_wgruu")
+mesh = SubResource("15")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Building3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("16")
+
+[node name="Building2" type="StaticBody3D" parent="Scenario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.0237, 0, 6.84215)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Building2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+material_override = SubResource("StandardMaterial3D_mc13v")
+mesh = SubResource("15")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Building2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("16")
+
+[node name="LargeBuilding" type="StaticBody3D" parent="Scenario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.3462, 0, 6.84215)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/LargeBuilding"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.8427, 0)
+material_override = SubResource("StandardMaterial3D_drtov")
+mesh = SubResource("17")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/LargeBuilding"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.8427, 0)
+shape = SubResource("18")
+
+[node name="Runway" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -216.931)
+mesh = SubResource("21")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Runway"]
+physics_material_override = SubResource("PhysicsMaterial_c3uvg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Runway/StaticBody3D"]
+shape = SubResource("23")
+
+[node name="FuelArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -217.504)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FuelArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.24536, 0.462433)
+shape = SubResource("24")
+
+[node name="Interface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="UIEnginePower" parent="Interface" instance=ExtResource("10")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -138.0
+offset_right = 74.0
+offset_bottom = -10.0
+grow_vertical = 0
+
+[node name="UIFuelLevel" parent="Interface" instance=ExtResource("5")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 81.0
+offset_top = -139.0
+offset_right = 145.0
+offset_bottom = -11.0
+grow_vertical = 0
+
+[node name="UILandingGear" parent="Interface" instance=ExtResource("25")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 153.0
+offset_top = -139.0
+offset_right = 263.0
+offset_bottom = -11.0
+grow_vertical = 0
+
+[node name="UIFlaps" parent="Interface" instance=ExtResource("23")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 272.0
+offset_top = -139.0
+offset_right = 382.0
+offset_bottom = -11.0
+grow_vertical = 0
+
+[node name="UIAttitude" parent="Interface" instance=ExtResource("26")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 395.0
+offset_top = -139.0
+offset_right = 611.0
+offset_bottom = -11.0
+grow_vertical = 0
+
+[node name="UIAltSpeed" parent="Interface" instance=ExtResource("22")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 674.0
+offset_top = -139.0
+offset_right = 785.0
+offset_bottom = -11.0
+grow_vertical = 0
+AircraftNode = NodePath("../../Aircraft")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Interface"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -177.0
+offset_top = 26.0
+offset_bottom = 279.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "CONTROLS
+
+P - Start engine
+O - Cut engine off
+F, V - Engine throttle up/down
+
+A,D - Ailerons left/right (roll)
+W,S - Elevator up/down (pitch)
+Q,E - Rudder left/right (yaw)
+
+G,B - Flaps up/down
+J,M - Landing gear up/down"
+
+[node name="Hint" type="Label" parent="Interface"]
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -174.0
+offset_right = 217.0
+offset_bottom = -160.0
+text = "Park on runway to refuel tank"
+
+[node name="BtnBack" type="Button" parent="Interface"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 163.0
+offset_bottom = 24.0
+focus_mode = 0
+text = "<- Back to example list"
+
+[connection signal="pressed" from="Interface/BtnBack" to="." method="_on_BtnBack_pressed"]
