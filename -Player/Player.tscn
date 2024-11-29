@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjoutknrt30d1"]
+[gd_scene load_steps=6 format=3 uid="uid://cjoutknrt30d1"]
 
 [ext_resource type="Script" path="res://-Player/player.gd" id="1_jrqim"]
+[ext_resource type="FontFile" uid="uid://b6rkmc1gihof2" path="res://-Media/¬Fonts/Ubuntu-Bold.ttf" id="2_6mn5b"]
+[ext_resource type="PackedScene" uid="uid://cjpovgx86rfb0" path="res://addons/compass/entities/compassbar.tscn" id="3_hf4xe"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gr1st"]
 radius = 0.42
@@ -27,3 +29,37 @@ current = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_jaqdu")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_6mn5b")
+theme_override_font_sizes/font_size = 20
+text = "[E] To Interact"
+horizontal_alignment = 1
+
+[node name="Compassbar" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("3_hf4xe")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -97.0
+offset_top = 4.0
+offset_right = -1.0
+offset_bottom = 19.0
+grow_horizontal = 2
+parent = NodePath("..")
+_lerp_speed = 0.2
