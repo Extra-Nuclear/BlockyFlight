@@ -5,6 +5,8 @@ extends CharacterBody3D
 @onready var camera = $Pivot  # Make sure to reference your camera node
 @onready var cameracamera = $Pivot/Camera3D
 
+@onready var IntL = $UI/Label
+
 var target_vertical_rotation: float = 0.0
 var target_horizontal_rotation: float = 0.0
 var camera_vertical_rotation: float = 0.0
@@ -20,6 +22,7 @@ var paused = false
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	camera_vertical_rotation = camera.rotation_degrees.x
+	IntL.visible = false
 
 
 func _process(delta: float) -> void:
@@ -71,3 +74,10 @@ func _input(event):
 		
 		# Apply the clamped rotation to the camera's X-axis
 		camera.rotation_degrees.x = camera_vertical_rotation
+
+func show_interact(interaction_letter : String, interaction_label : String):
+	IntL.text = str("[", str(interaction_letter), "] To ", str(interaction_label))
+	IntL.visible = true
+
+func hide_interact():
+	IntL.visible = false

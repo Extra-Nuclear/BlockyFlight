@@ -62,6 +62,7 @@ text = "Credits"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Text"]
+layout_mode = 0
 offset_top = 34.0
 offset_right = 366.0
 offset_bottom = 68.0
