@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c4dncgm8qjt7u" path="res://example/ui/UIFlaps/UIFlaps.tscn" id="9"]
 [ext_resource type="PackedScene" uid="uid://dhg4sb4ifrvh8" path="res://example/ui/UIAttitude/UIAttitude.tscn" id="10"]
 [ext_resource type="PackedScene" uid="uid://cmnn11bshth6g" path="res://example/ui/UITemperature/UITemperature.tscn" id="11"]
-[ext_resource type="PackedScene" path="res://example/scenes/Airplane/visuals/Steering/Steering.tscn" id="12"]
+[ext_resource type="PackedScene" uid="uid://d3x0n51kcbnd7" path="res://example/scenes/Airplane/visuals/Steering/Steering.tscn" id="12"]
 [ext_resource type="PackedScene" path="res://example/scenes/Airplane/visuals/Flaps/Flaps.tscn" id="13"]
 [ext_resource type="PackedScene" path="res://addons/simplified_flightsim/aircraft_modules/Controls/ControlEngine.tscn" id="14"]
 [ext_resource type="PackedScene" path="res://addons/simplified_flightsim/aircraft_modules/LandingGear/LandingGear.tscn" id="15"]

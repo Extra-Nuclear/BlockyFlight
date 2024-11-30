@@ -1,6 +1,9 @@
-[gd_scene load_steps=41 format=3 uid="uid://bud2j62go3xgj"]
+[gd_scene load_steps=44 format=3 uid="uid://bud2j62go3xgj"]
 
 [ext_resource type="Script" path="res://-Planes/cessna_172.gd" id="1_vo3vn"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wl0dk"]
+friction = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_86kv6"]
 size = Vector3(1.5, 1, 1)
@@ -120,15 +123,23 @@ size = Vector3(7.70364, 1.9209, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_mtukq"]
 size = Vector3(1, 0.145996, 3.19849)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_terxh"]
-height = 1.1091
-radius = 0.15
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fsjyv"]
+radius = 0.191107
+height = 0.770174
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pgkk8"]
+radius = 0.191107
+height = 0.770174
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2pdrg"]
 size = Vector3(10.7766, 6.38354, 6.21436)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_6x1t5"]
+size = Vector3(1.6976, 0.312012, 5.87488)
+
 [node name="Cessna 172" type="RigidBody3D"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+mass = 0.5
+physics_material_override = SubResource("PhysicsMaterial_wl0dk")
 script = ExtResource("1_vo3vn")
 
 [node name="Fusalage" type="Node3D" parent="."]
@@ -407,15 +418,15 @@ shape = SubResource("BoxShape3D_mtukq")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0681828, -0.528977, 0)
-shape = SubResource("CylinderShape3D_terxh")
+shape = SubResource("CapsuleShape3D_fsjyv")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.63995, -0.528977, 0.469524)
-shape = SubResource("CylinderShape3D_terxh")
+shape = SubResource("CapsuleShape3D_pgkk8")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.63995, -0.528977, -0.479617)
-shape = SubResource("CylinderShape3D_terxh")
+shape = SubResource("CapsuleShape3D_pgkk8")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 3
@@ -429,6 +440,10 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.870
 
 [node name="Outside Camera" type="Camera3D" parent="."]
 transform = Transform3D(-4.0518e-08, 0.26781, -0.963472, 2.34127e-08, 0.963472, 0.26781, 1, -1.17064e-08, -4.53081e-08, -8.10069, 3.13224, 3.54092e-07)
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.80067, 1.58657, -0.0684204)
+shape = SubResource("BoxShape3D_6x1t5")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_exited"]

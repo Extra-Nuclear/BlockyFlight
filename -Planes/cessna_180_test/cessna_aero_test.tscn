@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dbwdrv7nf30so"]
+[gd_scene load_steps=38 format=3 uid="uid://dbwdrv7nf30so"]
 
 [ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/core/aero_body_3d.gd" id="1_c61wq"]
 [ext_resource type="PackedScene" uid="uid://66jn0jhwtsrh" path="res://-Planes/cessna_180/cessna_180_skywagon.glb" id="2_ma4qe"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/core/aero_influencer_3d/aero_surface_3d/manual_aero_surface_3d/manual_aero_surface_config.gd" id="9_ke27g"]
 [ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/core/aero_influencer_3d/aero_surface_3d/aero_surface_config.gd" id="10_3ja2i"]
 [ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/components/aero_thruster_component/AeroJetThrusterComponent.gd" id="11_ngcth"]
+[ext_resource type="PackedScene" uid="uid://bmut2y2xaqj6x" path="res://example/ui/UIAltSpeed/UIAltSpeed.tscn" id="12_xktio"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_drpoq"]
 friction = 0.0
@@ -148,6 +149,7 @@ size = Vector3(7.3728, 0.215118, 4.76475)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_266u1"]
 radius = 0.446985
+height = 2.92036
 
 [sub_resource type="Curve" id="Curve_et0wi"]
 min_value = 1.0
@@ -241,13 +243,16 @@ script = ExtResource("3_tug0e")
 flight_assist = SubResource("Resource_7usg7")
 cumulative_throttle_up_event = &"plane_thrust_up"
 cumulative_throttle_down_event = &"plane_thrust_down"
+cumulative_throttle_rate = 0.01
+brake_up_event = &"plane_thrust_down"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00468441, 1.50782)
 shape = SubResource("BoxShape3D_xegyf")
+disabled = true
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, -0.434142, -0.41004)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, -1.30482, -2.17964)
 shape = SubResource("CapsuleShape3D_266u1")
 
 [node name="Elevator" type="Node3D" parent="."]
@@ -277,7 +282,7 @@ visible = false
 size = Vector3(0.141602, 1.41797, 1.14014)
 
 [node name="WingL" type="Node3D" parent="."]
-transform = Transform3D(0.996195, 0.0871557, 0, -0.0870363, 0.994829, -0.052336, -0.00456138, 0.0521368, 0.99863, -1.90776, 0, -0.473555)
+transform = Transform3D(0.996195, 0.0871557, 0, -0.0870363, 0.994829, -0.052336, -0.00456138, 0.0521368, 0.99863, -1.90776, -0.107085, -0.389903)
 script = ExtResource("6_cei7o")
 manual_config = SubResource("Resource_ndu4m")
 wing_config = SubResource("Resource_y5isx")
@@ -290,7 +295,7 @@ visible = false
 size = Vector3(3.67285, 0.113525, 1.14014)
 
 [node name="WingR" type="Node3D" parent="."]
-transform = Transform3D(0.996195, -0.0871557, 0, 0.0870363, 0.994829, -0.052336, 0.00456138, 0.0521368, 0.99863, 1.908, 0, -0.473945)
+transform = Transform3D(0.996195, -0.0871557, 0, 0.0870363, 0.994829, -0.052336, 0.00456138, 0.0521368, 0.99863, 1.908, -0.107085, -0.390293)
 script = ExtResource("6_cei7o")
 manual_config = SubResource("Resource_ndu4m")
 wing_config = SubResource("Resource_y5isx")
@@ -306,4 +311,17 @@ size = Vector3(3.67285, 0.113525, 1.14014)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55771, 9.0562)
 
 [node name="AeroThrusterComponent" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00442791, 0.0116658, -0.00113678)
 script = ExtResource("11_ngcth")
+exhaust_velocity = 300.0
+max_thrust_force = 300.0
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0237191, 3.78107)
+shape = SubResource("CapsuleShape3D_266u1")
+
+[node name="UIAltSpeed" parent="." instance=ExtResource("12_xktio")]
+offset_left = 1044.0
+offset_top = 518.0
+offset_right = 1155.0
+offset_bottom = 646.0

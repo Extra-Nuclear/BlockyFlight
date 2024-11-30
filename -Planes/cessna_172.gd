@@ -25,10 +25,10 @@ func _on_area_exited(body):
 		body.hide_interact()
 
 # Movement parameters
-var thrust = 30.0           # Force applied for forward movement
-var pitch_speed = 2.0       # Pitch control sensitivity (Arrow Up/Down)
-var yaw_speed = 1.0         # Yaw control sensitivity (Arrow Left/Right)
-var roll_speed = 1.0        # Roll control sensitivity (A/D keys)
+var thrust = 5.0
+var pitch_speed = 1.0
+var yaw_speed = 0.5
+var roll_speed = 0.5     # Roll control sensitivity (A/D keys)
 
 # Moving part angles
 var rudder_angle = 0.0
@@ -62,6 +62,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("interact") and player_inside:
 		# Hide the player and transfer control to the plane
 		player_node.visible = false
+		player_node.queue_free()
 		player_node.set_physics_process(false)  # Stop player movement
 		self.set("is_in_control", true)  # Notify plane script
 		is_in_control = true
@@ -77,16 +78,19 @@ func _process(delta):
 
 func _physics_process(delta):
 	# Thrust (W key)
+	print("Mass:", mass, "Inertia:", inertia)
+	print("Applied pitch torque (global):", global_transform.basis.x * pitch_speed)
+	
 	if Input.is_action_pressed("plane_thrust_up") and is_in_control:
 		apply_central_force(transform.basis.x * thrust)
 
 	# Pitch (Arrow Up/Down)
 	if Input.is_action_pressed("plane_pitch_up") and is_in_control:
 		apply_torque(Vector3(1, 0, 0) * pitch_speed)
-		print("Applying pitch up torque")
+		#print("Applying pitch up torque")
 	elif Input.is_action_pressed("plane_pitch_down") and is_in_control:
 		apply_torque(Vector3(-1, 0, 0) * pitch_speed)
-		print("Applying pitch down torque")
+		#print("Applying pitch down torque")
 	# Yaw (Arrow Left/Right)
 	if Input.is_action_pressed("plane_yaw_left") and is_in_control:
 		apply_torque(Vector3(0, 1, 0) * yaw_speed)
@@ -112,6 +116,6 @@ func _physics_process(delta):
 	$Moving/Ailerons/Right.rotation_degrees.z = -aileron_angle  # Inverted for the opposite aileron
 
 	# Spin Propeller
-	$Moving/Blades.rotate_x(deg_to_rad(propeller_speed* delta))
+	#$Moving/Blades.rotate_x(deg_to_rad(propeller_speed* delta))
 	
 	print("Plane rotation:", transform.basis.get_euler())
