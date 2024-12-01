@@ -41,6 +41,7 @@ func calculate_mass_flow_acceleration_force() -> float:
 	
 	#mass_flow_rate = mass/time
 	#mass_flow_rate == density * velocity * area
+	#print(str((exhaust_mass_flow_rate * exhaust_velocity) - (intake_mass_flow_rate * intake_air_velocity)))
 	return (exhaust_mass_flow_rate * exhaust_velocity) - (intake_mass_flow_rate * intake_air_velocity)# + (exhaust_pressure - intake_air_pressure) * exit_area
 
 func calculate_exhaust_velocity() -> float:

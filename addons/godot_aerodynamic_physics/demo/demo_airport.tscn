@@ -1,0 +1,77 @@
+[gd_scene load_steps=14 format=3 uid="uid://djexx6k27mt7c"]
+
+[ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/demo/demo_airport.gd" id="1_dionr"]
+[ext_resource type="PackedScene" uid="uid://dx0v1i14fyw8c" path="res://addons/godot_aerodynamic_physics/demo/demo_plane.tscn" id="1_s7037"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qh867"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_dsdc3"]
+sky_material = SubResource("ProceduralSkyMaterial_qh867")
+
+[sub_resource type="Environment" id="Environment_pakk4"]
+background_mode = 2
+sky = SubResource("Sky_dsdc3")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_n4lvd"]
+frequency = 0.2125
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rutke"]
+noise = SubResource("FastNoiseLite_n4lvd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ka23"]
+albedo_color = Color(0, 0.490196, 0.0823529, 1)
+albedo_texture = SubResource("NoiseTexture2D_rutke")
+uv1_scale = Vector3(200, 200, 200)
+uv2_scale = Vector3(200, 200, 200)
+
+[sub_resource type="Gradient" id="Gradient_0oqmo"]
+offsets = PackedFloat32Array(0.380952, 0.992063)
+colors = PackedColorArray(0, 0, 0, 1, 0.129559, 0.129558, 0.129558, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_psq3y"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sh5sg"]
+width = 100
+height = 1000
+seamless = true
+color_ramp = SubResource("Gradient_0oqmo")
+noise = SubResource("FastNoiseLite_psq3y")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kr7tk"]
+albedo_texture = SubResource("NoiseTexture2D_sh5sg")
+
+[sub_resource type="BoxMesh" id="BoxMesh_k7wr6"]
+material = SubResource("StandardMaterial3D_kr7tk")
+size = Vector3(75, 1, 1500)
+
+[node name="demo_airport" type="Node3D"]
+script = ExtResource("1_dionr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pakk4")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.12099, -190.455)
+use_collision = true
+size = Vector3(20000, 1, 20000)
+material = SubResource("StandardMaterial3D_4ka23")
+
+[node name="AeroBody3D" parent="." instance=ExtResource("1_s7037")]
+transform = Transform3D(1, 0, 0, 0, 0.994434, -0.105362, 0, 0.105362, 0.994434, 0, -1.38891, 0)
+show_debug = true
+update_debug = true
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.3143, -738.255)
+use_collision = true
+mesh = SubResource("BoxMesh_k7wr6")
+
+[connection signal="crashed" from="AeroBody3D" to="." method="_on_aero_body_3d_crashed"]

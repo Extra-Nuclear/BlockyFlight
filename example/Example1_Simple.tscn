@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://b8s77ar81hq22" path="res://example/ui/UILandingGear/UILandingGear.tscn" id="25"]
 [ext_resource type="PackedScene" uid="uid://dhg4sb4ifrvh8" path="res://example/ui/UIAttitude/UIAttitude.tscn" id="26"]
 [ext_resource type="AudioStream" uid="uid://cqkqskpah2gx7" path="res://example/sfx/aircraft_modules/flaps/flap_loop.ogg" id="27"]
-[ext_resource type="PackedScene" path="res://example/scenes/Airplane/visuals/Steering/Steering.tscn" id="28"]
+[ext_resource type="PackedScene" uid="uid://d3x0n51kcbnd7" path="res://example/scenes/Airplane/visuals/Steering/Steering.tscn" id="28"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ryrq1"]
 

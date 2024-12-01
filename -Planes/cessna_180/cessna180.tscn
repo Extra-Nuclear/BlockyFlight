@@ -1,15 +1,121 @@
-[gd_scene load_steps=23 format=3 uid="uid://cpjp2kre52al3"]
+[gd_scene load_steps=34 format=3 uid="uid://cpjp2kre52al3"]
 
 [ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/core/aero_body_3d.gd" id="1_yoh33"]
 [ext_resource type="PackedScene" uid="uid://66jn0jhwtsrh" path="res://-Planes/cessna_180/cessna_180_skywagon.glb" id="2_403be"]
 [ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/core/aero_influencer_3d/aero_surface_3d/manual_aero_surface_3d/manual_aero_surface_3d.gd" id="3_gt6qe"]
+[ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/core/control_configs/aero_control_config.gd" id="4_0jm6f"]
 [ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/core/aero_influencer_3d/aero_surface_3d/manual_aero_surface_3d/manual_aero_surface_config.gd" id="4_hpisc"]
 [ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/core/aero_influencer_3d/aero_surface_3d/aero_surface_config.gd" id="5_q085y"]
+[ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/core/control_configs/aero_influencer_control_config.gd" id="6_222g4"]
 [ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/components/AeroControlComponent.gd" id="6_xs8ep"]
 [ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/core/aero_influencer_3d/aero_rotator_3d/aero_propeller_3d.gd" id="7_wsuld"]
+[ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/core/control_configs/aero_influencer_control_axis_config.gd" id="7_xgwcy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tpl3y"]
 size = Vector3(7.48657, 1, 1)
+
+[sub_resource type="Resource" id="Resource_nbhyw"]
+script = ExtResource("4_0jm6f")
+use_bindings = true
+input = 0.0
+min_limit = -1.0
+max_limit = 1.0
+positive_event = &"ui_down"
+negative_event = &"ui_up"
+enable_smoothing = false
+smoothing_rate = 1.0
+cumulative_positive_event = &""
+cumulative_negative_event = &""
+cumulative_rate = 1.0
+easing = 1.0
+
+[sub_resource type="Resource" id="Resource_xgxlj"]
+script = ExtResource("4_0jm6f")
+use_bindings = true
+input = 0.0
+min_limit = -1.0
+max_limit = 1.0
+positive_event = &""
+negative_event = &""
+enable_smoothing = false
+smoothing_rate = 1.0
+cumulative_positive_event = &""
+cumulative_negative_event = &""
+cumulative_rate = 1.0
+easing = 1.0
+
+[sub_resource type="Resource" id="Resource_coysj"]
+script = ExtResource("4_0jm6f")
+use_bindings = true
+input = 0.0
+min_limit = -1.0
+max_limit = 1.0
+positive_event = &"ui_left"
+negative_event = &"ui_right"
+enable_smoothing = false
+smoothing_rate = 1.0
+cumulative_positive_event = &""
+cumulative_negative_event = &""
+cumulative_rate = 1.0
+easing = 1.0
+
+[sub_resource type="Resource" id="Resource_2x5rq"]
+script = ExtResource("4_0jm6f")
+use_bindings = true
+input = 0.0
+min_limit = 0.0
+max_limit = 1.0
+positive_event = &""
+negative_event = &""
+enable_smoothing = false
+smoothing_rate = 1.0
+cumulative_positive_event = &""
+cumulative_negative_event = &""
+cumulative_rate = 1.0
+easing = 1.0
+
+[sub_resource type="Resource" id="Resource_kwfee"]
+script = ExtResource("4_0jm6f")
+use_bindings = true
+input = 0.0
+min_limit = 0.0
+max_limit = 1.0
+positive_event = &""
+negative_event = &""
+enable_smoothing = false
+smoothing_rate = 1.0
+cumulative_positive_event = &""
+cumulative_negative_event = &""
+cumulative_rate = 1.0
+easing = 1.0
+
+[sub_resource type="Resource" id="Resource_v3s3m"]
+script = ExtResource("4_0jm6f")
+use_bindings = true
+input = 0.0
+min_limit = -1.0
+max_limit = 1.0
+positive_event = &""
+negative_event = &""
+enable_smoothing = false
+smoothing_rate = 1.0
+cumulative_positive_event = &""
+cumulative_negative_event = &""
+cumulative_rate = 1.0
+easing = 1.0
+
+[sub_resource type="Resource" id="Resource_d6feh"]
+script = ExtResource("7_xgwcy")
+contribution = Vector3(1, 1, 1)
+easing = 1.0
+
+[sub_resource type="Resource" id="Resource_w7vda"]
+script = ExtResource("6_222g4")
+enable_control = true
+max_value = Vector3(0, 100, 0)
+limit_movement_speed = false
+movement_speed = 1.0
+throttle_config = SubResource("Resource_d6feh")
 
 [sub_resource type="Curve" id="Curve_8f2jj"]
 bake_resolution = 21
@@ -117,17 +223,18 @@ shape = SubResource("BoxShape3D_tpl3y")
 
 [node name="AeroControlComponent" type="Node" parent="."]
 script = ExtResource("6_xs8ep")
-pitch_up_event = &"plane_pitch_up"
-pitch_down_event = &"plane_pitch_down"
-yaw_left_event = &"plane_yaw_left"
-yaw_right_event = &"plane_yaw_left"
-cumulative_throttle_up_event = &"plane_thrust_up"
-cumulative_throttle_down_event = &"plane_thrust_down"
+pitch_control_config = SubResource("Resource_nbhyw")
+yaw_control_config = SubResource("Resource_xgxlj")
+roll_control_config = SubResource("Resource_coysj")
+throttle_control_config = SubResource("Resource_2x5rq")
+brake_control_config = SubResource("Resource_kwfee")
+collective_control_config = SubResource("Resource_v3s3m")
 
 [node name="AeroPropeller3D" type="Node3D" parent="." node_paths=PackedStringArray("propeller_blade")]
 transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, -3.6853, -0.256483, 1.6109e-07)
 script = ExtResource("7_wsuld")
 propeller_blade = NodePath("ManualAeroSurface3D")
+propeller_speed_control_config = SubResource("Resource_w7vda")
 angular_motor = Vector3(150, 0, 0)
 
 [node name="ManualAeroSurface3D" type="Node3D" parent="AeroPropeller3D"]
@@ -135,7 +242,6 @@ transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.371
 script = ExtResource("3_gt6qe")
 manual_config = SubResource("Resource_dfpyt")
 wing_config = SubResource("Resource_kf82k")
-enable_automatic_control = false
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="AeroPropeller3D/ManualAeroSurface3D"]
 transform = Transform3D(1.16187, -4.69245e-38, 0, -8.74097e-37, 0.085052, -2.11758e-22, -7.57306e-29, -1.32349e-22, 0.207217, -0.033091, -1.44428e-09, 0.0548532)
@@ -149,32 +255,24 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.662
 script = ExtResource("3_gt6qe")
 manual_config = SubResource("Resource_4sxqv")
 wing_config = SubResource("Resource_klvfg")
-max_actuation = Vector3(0.1, 0, 0)
-roll_contribution = Vector3(-1, 0, 0)
 
 [node name="Right Wing" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.66293, 0.484652, -2.93863)
 script = ExtResource("3_gt6qe")
 manual_config = SubResource("Resource_4sxqv")
 wing_config = SubResource("Resource_klvfg")
-max_actuation = Vector3(0.1, 0, 0)
-roll_contribution = Vector3(1, 0, 0)
 
 [node name="Right Aelron" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.74182, 0.0460092, -0.93512)
 script = ExtResource("3_gt6qe")
 manual_config = SubResource("Resource_4sxqv")
 wing_config = SubResource("Resource_2jjyp")
-max_actuation = Vector3(0.1, 0, 0)
-pitch_contribution = Vector3(-1, 0, 0)
 
 [node name="Left Aelron" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.74182, 0.0460092, 0.954647)
 script = ExtResource("3_gt6qe")
 manual_config = SubResource("Resource_4sxqv")
 wing_config = SubResource("Resource_2jjyp")
-max_actuation = Vector3(0.1, 0, 0)
-pitch_contribution = Vector3(-1, 0, 0)
 
 [node name="Rudder" type="Node3D" parent="."]
 transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 2.81615, 0.676244, -0.00507447)

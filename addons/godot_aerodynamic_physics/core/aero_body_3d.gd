@@ -5,6 +5,8 @@ class_name AeroBody3D
 const AeroMathUtils = preload("../utils/math_utils.gd")
 const AeroNodeUtils = preload("../utils/node_utils.gd")
 
+signal crashed(impact_velocity)
+
 ##Overrides the amount of simulation substeps are used when calculating aerodynamic effects on this body.
 @export var substeps_override : int = -1:
 	set(x):
@@ -12,13 +14,15 @@ const AeroNodeUtils = preload("../utils/node_utils.gd")
 		PREDICTION_TIMESTEP_FRACTION = 1.0 / float(SUBSTEPS)
 
 @export_group("Control")
-##Value used by AeroInfluencers to control the AeroBody3D. Represents rotational axes. 
-##X = Pitch, Y = Yaw, Z = Roll.
+## Value used by AeroInfluencers to control the AeroBody3D. Represents rotational axes. 
+## X = Pitch, Y = Yaw, Z = Roll.
 @export var control_command : Vector3 = Vector3.ZERO
-##Value used by AeroInfluencers to control the AeroBody3D.
+## Value used by AeroInfluencers to control the AeroBody3D.
 @export var throttle_command : float = 0.0
-##Value used by AeroInfluencers to control the AeroBody3D.
+## Value used by AeroInfluencers to control the AeroBody3D.
 @export var brake_command : float = 0.0
+## Value used by AeroInfluencers to control the AeroBody3D.
+@export var collective_command : float = 0.0
 
 @export_group("Debug")
 
@@ -136,6 +140,10 @@ var bank_angle := 0.0
 var heading := 0.0
 var inclination := 0.0
 
+#====================
+#MODIFIED VALUES
+@onready var MaxLandingForce = 1
+#====================
 
 #debug
 var linear_velocity_vector : AeroDebugVector3D
@@ -148,6 +156,8 @@ var mass_debug_point : AeroDebugPoint3D
 var thrust_debug_vector : AeroDebugVector3D
 
 func _init():
+	#print(throttle_command)
+	
 	mass_debug_point = AeroDebugPoint3D.new(Color(1, 1, 0), debug_center_width, true)
 	mass_debug_point.visible = false
 	mass_debug_point.sorting_offset = 0.0
@@ -257,6 +267,7 @@ func calculate_forces(state : PhysicsDirectBodyState3D) -> PackedVector3Array:
 	air_velocity = -linear_velocity + wind
 	air_speed = air_velocity.length()
 	
+	
 	if has_node("/root/AeroUnits"):
 		var _AeroUnits : Node = $"/root/AeroUnits"
 		altitude = _AeroUnits.get_altitude(self)
@@ -271,6 +282,7 @@ func calculate_forces(state : PhysicsDirectBodyState3D) -> PackedVector3Array:
 	bank_angle = rotation.z
 	heading = rotation.y
 	inclination = rotation.x
+	#print("Heading", str(rotation.y))
 	if not Engine.is_editor_hint():
 		center_of_mass = state.center_of_mass_local
 	
@@ -293,7 +305,7 @@ func calculate_forces(state : PhysicsDirectBodyState3D) -> PackedVector3Array:
 					continue
 				influencer._update_transform_substep(substep_delta)
 		
-		linear_velocity_prediction = predict_linear_velocity(last_force_and_torque[0] + state.total_gravity * mass)
+		linear_velocity_prediction = predict_linear_velocity(last_force_and_torque[0]) + state.total_gravity * PREDICTION_TIMESTEP_FRACTION
 		angular_velocity_prediction = predict_angular_velocity(last_force_and_torque[1])
 		last_force_and_torque = calculate_aerodynamic_forces(linear_velocity_prediction, angular_velocity_prediction, air_density, substep_delta)
 		
@@ -324,17 +336,10 @@ func calculate_aerodynamic_forces(_velocity : Vector3, _angular_velocity : Vecto
 	return PackedVector3Array([force, torque])
 
 func predict_linear_velocity(force : Vector3) -> Vector3:
-	return linear_velocity + get_physics_process_delta_time() * (PREDICTION_TIMESTEP_FRACTION * force / mass)
+	return linear_velocity + (force / mass * get_physics_process_delta_time() * PREDICTION_TIMESTEP_FRACTION)
 
 func predict_angular_velocity(torque : Vector3) -> Vector3:
-	var torque_in_diagonal_space : Vector3 = get_inverse_inertia_tensor() * torque
-
-	var angular_velocity_change_in_diagonal_space : Vector3
-	angular_velocity_change_in_diagonal_space.x = torque_in_diagonal_space.x / get_inverse_inertia_tensor().x.length()
-	angular_velocity_change_in_diagonal_space.y = torque_in_diagonal_space.y / get_inverse_inertia_tensor().y.length()
-	angular_velocity_change_in_diagonal_space.z = torque_in_diagonal_space.z / get_inverse_inertia_tensor().z.length()
-
-	return angular_velocity + get_physics_process_delta_time() * PREDICTION_TIMESTEP_FRACTION * (get_inverse_inertia_tensor() * angular_velocity_change_in_diagonal_space)
+	return angular_velocity + get_physics_process_delta_time() * PREDICTION_TIMESTEP_FRACTION * (get_inverse_inertia_tensor() * torque)
 
 func get_amount_of_active_influencers() -> int:
 	var count : int = 0
@@ -475,3 +480,21 @@ func _update_debug_scale() -> void:
 	angular_velocity_vector.width = debug_width
 	drag_debug_vector.width = debug_width
 	thrust_debug_vector.width = debug_width
+
+
+func _on_body_entered(body: Node) -> void:
+	var impact_force = linear_velocity.length()
+	var landing_force = linear_velocity.dot(global_transform.basis.y)
+	land(landing_force, impact_force)
+	print("Body Entered")
+	
+func land(landing_velocity: float, impact_velocity: float):
+	print(landing_velocity)
+	print(impact_velocity)
+	
+	if landing_velocity > MaxLandingForce:
+		crash(landing_velocity)
+
+func crash(impact_velocity: float):
+	print("Crashed!")
+	emit_signal("crashed", impact_velocity)
