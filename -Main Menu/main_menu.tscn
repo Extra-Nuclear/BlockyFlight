@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://dy5io3s60egki"]
+[gd_scene load_steps=16 format=3 uid="uid://dy5io3s60egki"]
 
 [ext_resource type="Script" path="res://-Main Menu/main_menu.gd" id="1_gsbf4"]
 [ext_resource type="FontFile" uid="uid://ox7oe5j08pi8" path="res://-Media/¬Fonts/Prompt-Bold.ttf" id="1_nmlwe"]
+[ext_resource type="Texture2D" uid="uid://dcrow1ka6gmcq" path="res://-Media/background.png" id="2_dqw35"]
 [ext_resource type="FontFile" uid="uid://b6rkmc1gihof2" path="res://-Media/¬Fonts/Ubuntu-Bold.ttf" id="2_ypwep"]
 [ext_resource type="PackedScene" uid="uid://bud2j62go3xgj" path="res://-Planes/cessna_172.tscn" id="3_25wbn"]
 [ext_resource type="StyleBox" uid="uid://cjf532kmes4ba" path="res://-Main Menu/¬Styles/Main-Menu-Buttons.tres" id="4_4pqxe"]
@@ -9,18 +10,7 @@
 [ext_resource type="Script" path="res://-Main Menu/spinning_blades.gd" id="4_xmnuv"]
 [ext_resource type="PackedScene" uid="uid://cdgsb0yy73rn2" path="res://-Main Menu/¬Buttons/Credits.tscn" id="7_8w25w"]
 [ext_resource type="PackedScene" uid="uid://bdoja00qa6rm1" path="res://-Main Menu/¬Buttons/Settings.tscn" id="8_66p7a"]
-
-[sub_resource type="Gradient" id="Gradient_ncuy1"]
-offsets = PackedFloat32Array(0, 0.577922)
-colors = PackedColorArray(0.925353, 0.925353, 0.925353, 1, 0.192157, 0.776471, 1, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_vm1l2"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q1q8u"]
-width = 1200
-height = 700
-color_ramp = SubResource("Gradient_ncuy1")
-noise = SubResource("FastNoiseLite_vm1l2")
+[ext_resource type="PackedScene" uid="uid://dbwdrv7nf30so" path="res://-Planes/cessna_180_test/cessna_aero_test.tscn" id="8_85fbo"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_arcpq"]
 viewport_path = NodePath("Plane/SubViewport")
@@ -50,15 +40,17 @@ script = ExtResource("1_gsbf4")
 [node name="Background" type="Node2D" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
+modulate = Color(0.851769, 0.851769, 0.851769, 1)
 offset_left = -14.0
-offset_right = 1186.0
-offset_bottom = 512.0
-texture = SubResource("NoiseTexture2D_q1q8u")
+offset_right = 1928.0
+offset_bottom = 1080.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_dqw35")
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
 texture_filter = 1
-position = Vector2(751, 350)
-scale = Vector2(2, 2)
+position = Vector2(708, 379)
+scale = Vector2(1.80762, 1.80762)
 texture = SubResource("ViewportTexture_arcpq")
 
 [node name="Camera" type="Node2D" parent="."]
@@ -78,7 +70,7 @@ theme_override_constants/margin_top = 50
 
 [node name="Label" type="Label" parent="Buttons/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0.811765, 1, 1)
+theme_override_colors/font_color = Color(0.541176, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0.47451, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0.0465177, 0.14727, 1)
 theme_override_constants/shadow_offset_x = 2
@@ -97,10 +89,18 @@ offset_bottom = 543.0
 
 [node name="Start" type="Button" parent="Buttons/VBoxContainer2"]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.448582, 1, 0.997263, 1)
+theme_override_colors/font_pressed_color = Color(1.15514e-06, 0.976725, 0.975504, 1)
+theme_override_colors/font_focus_color = Color(0.811765, 1, 0.996078, 1)
+theme_override_colors/font_color = Color(0.810148, 1, 0.997761, 1)
+theme_override_colors/font_outline_color = Color(0, 0.0470588, 0.14902, 1)
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_ypwep")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = ExtResource("4_4pqxe")
+theme_override_styles/hover_pressed = ExtResource("4_4pqxe")
 theme_override_styles/hover = ExtResource("4_unn2l")
+theme_override_styles/pressed = ExtResource("4_4pqxe")
 theme_override_styles/normal = ExtResource("4_4pqxe")
 text = "Start"
 expand_icon = true
@@ -111,10 +111,18 @@ theme_override_constants/margin_top = 10
 
 [node name="Settings" type="Button" parent="Buttons/VBoxContainer2"]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.448582, 1, 0.997263, 1)
+theme_override_colors/font_pressed_color = Color(1.15514e-06, 0.976725, 0.975504, 1)
+theme_override_colors/font_focus_color = Color(0.811765, 1, 0.996078, 1)
+theme_override_colors/font_color = Color(0.810148, 1, 0.997761, 1)
+theme_override_colors/font_outline_color = Color(0, 0.0470588, 0.14902, 1)
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_ypwep")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = ExtResource("4_4pqxe")
+theme_override_styles/hover_pressed = ExtResource("4_4pqxe")
 theme_override_styles/hover = ExtResource("4_unn2l")
+theme_override_styles/pressed = ExtResource("4_4pqxe")
 theme_override_styles/normal = ExtResource("4_4pqxe")
 text = "Settings"
 expand_icon = true
@@ -125,10 +133,18 @@ theme_override_constants/margin_top = 10
 
 [node name="Credits" type="Button" parent="Buttons/VBoxContainer2"]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.448582, 1, 0.997263, 1)
+theme_override_colors/font_pressed_color = Color(1.15514e-06, 0.976725, 0.975504, 1)
+theme_override_colors/font_focus_color = Color(0.811765, 1, 0.996078, 1)
+theme_override_colors/font_color = Color(0.810148, 1, 0.997761, 1)
+theme_override_colors/font_outline_color = Color(0, 0.0470588, 0.14902, 1)
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_ypwep")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = ExtResource("4_4pqxe")
+theme_override_styles/hover_pressed = ExtResource("4_4pqxe")
 theme_override_styles/hover = ExtResource("4_unn2l")
+theme_override_styles/pressed = ExtResource("4_4pqxe")
 theme_override_styles/normal = ExtResource("4_4pqxe")
 text = "Credits"
 expand_icon = true
@@ -139,10 +155,18 @@ theme_override_constants/margin_top = 10
 
 [node name="Quit" type="Button" parent="Buttons/VBoxContainer2"]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.448582, 1, 0.997263, 1)
+theme_override_colors/font_pressed_color = Color(1.15514e-06, 0.976725, 0.975504, 1)
+theme_override_colors/font_focus_color = Color(0.811765, 1, 0.996078, 1)
+theme_override_colors/font_color = Color(0.810148, 1, 0.997761, 1)
+theme_override_colors/font_outline_color = Color(0, 0.0470588, 0.14902, 1)
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_ypwep")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = ExtResource("4_4pqxe")
+theme_override_styles/hover_pressed = ExtResource("4_4pqxe")
 theme_override_styles/hover = ExtResource("4_unn2l")
+theme_override_styles/pressed = ExtResource("4_4pqxe")
 theme_override_styles/normal = ExtResource("4_4pqxe")
 text = "Quit
 "
@@ -158,6 +182,7 @@ transform = Transform3D(1, 0, 0, 0, 0.927393, -0.374089, 0, 0.374089, 0.927393, 
 
 [node name="Cessna 172" parent="Plane/SubViewport" instance=ExtResource("3_25wbn")]
 transform = Transform3D(-0.797078, 0, -0.603876, 0, 1, 0, 0.603876, 0, -0.797078, -0.620497, 7.31071, 0)
+visible = false
 gravity_scale = 0.0
 
 [node name="Blades" parent="Plane/SubViewport/Cessna 172/Moving" index="3"]
@@ -170,12 +195,19 @@ environment = SubResource("Environment_0pppi")
 transform = Transform3D(-0.866025, -0.492404, -0.0868241, 0, -0.173648, 0.984808, -0.5, 0.852868, 0.150384, 0, 0, 0)
 shadow_enabled = true
 
+[node name="AeroBody3D" parent="Plane/SubViewport" instance=ExtResource("8_85fbo")]
+transform = Transform3D(-0.568591, 0, 0.822621, 0, 1, 0, -0.822621, 0, -0.568591, 0, 8.00415, -0.415251)
+gravity_scale = 0.0
+
+[node name="Control" parent="Plane/SubViewport/AeroBody3D" index="13"]
+visible = false
+
 [node name="Label2" type="Label" parent="."]
 offset_left = 150.0
 offset_top = 115.0
 offset_right = 469.0
 offset_bottom = 192.0
-theme_override_colors/font_color = Color(0, 0.811765, 1, 1)
+theme_override_colors/font_color = Color(0.541176, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0.47451, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0.0465177, 0.14727, 1)
 theme_override_constants/shadow_offset_x = 2
@@ -189,12 +221,14 @@ horizontal_alignment = 1
 [node name="Others" type="Node2D" parent="."]
 
 [node name="Credits" parent="Others" instance=ExtResource("7_8w25w")]
+visible = false
 offset_left = 561.0
 offset_top = 334.0
 offset_right = 561.0
 offset_bottom = 334.0
 
 [node name="Settings" parent="Others" instance=ExtResource("8_66p7a")]
+visible = false
 offset_left = 561.0
 offset_top = 334.0
 offset_right = 561.0
@@ -203,13 +237,14 @@ offset_bottom = 334.0
 [node name="Version" type="Node2D" parent="."]
 
 [node name="Version" type="Label" parent="Version"]
-offset_left = 1011.0
+offset_left = 1009.0
 offset_top = 624.0
-offset_right = 1149.0
+offset_right = 1147.0
 offset_bottom = 654.0
+theme_override_colors/font_color = Color(0.643137, 1, 1, 0.933333)
 theme_override_fonts/font = ExtResource("2_ypwep")
 theme_override_font_sizes/font_size = 20
-text = "0.1.1.2"
+text = "0.1.1.6"
 horizontal_alignment = 2
 
 [connection signal="pressed" from="Buttons/VBoxContainer2/Start" to="." method="_on_start_pressed"]
@@ -218,3 +253,4 @@ horizontal_alignment = 2
 [connection signal="pressed" from="Buttons/VBoxContainer2/Quit" to="." method="_on_quit_pressed"]
 
 [editable path="Plane/SubViewport/Cessna 172"]
+[editable path="Plane/SubViewport/AeroBody3D"]

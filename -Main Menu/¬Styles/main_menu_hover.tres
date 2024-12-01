@@ -6,5 +6,3 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-expand_margin_top = 3.0
-expand_margin_bottom = 3.0

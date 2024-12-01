@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://dxv2r42s0tgk3"]
+
+[ext_resource type="Texture2D" uid="uid://vlm4qjva4pnk" path="res://-Media/grass.jpg" id="1_78xof"]
+
+[sub_resource type="Gradient" id="Gradient_0hqc4"]
+offsets = PackedFloat32Array(0.219081, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.439049, 0.439049, 0.439049, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_iq04c"]
+frequency = 0.0084
+fractal_octaves = 6
+fractal_gain = 0.645
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v6c2d"]
+seamless = true
+seamless_blend_skirt = 0.573
+as_normal_map = true
+color_ramp = SubResource("Gradient_0hqc4")
+noise = SubResource("FastNoiseLite_iq04c")
+
+[sub_resource type="Gradient" id="Gradient_ofl0y"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tu240"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xqgfg"]
+color_ramp = SubResource("Gradient_ofl0y")
+noise = SubResource("FastNoiseLite_tu240")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ylt3"]
+albedo_color = Color(0.564961, 0.564962, 0.564961, 1)
+albedo_texture = ExtResource("1_78xof")
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_v6c2d")
+subsurf_scatter_enabled = true
+subsurf_scatter_texture = SubResource("NoiseTexture2D_xqgfg")
+uv1_scale = Vector3(25000, 25000, 25000)
+uv1_offset = Vector3(100, 100, 100)
+
+[node name="Map 1" type="Node3D"]
+
+[node name="Landscape" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Landscape"]
+use_collision = true
+size = Vector3(50000, 0.1, 50000)
+material = SubResource("StandardMaterial3D_6ylt3")
+
+[node name="Airport 1" type="Node3D" parent="."]
+
+[node name="Runway" type="Node3D" parent="Airport 1"]
+
+[node name="Terminal" type="Node3D" parent="Airport 1"]
+
+[node name="Taxi Way" type="Node3D" parent="Airport 1"]

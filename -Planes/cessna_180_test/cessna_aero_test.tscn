@@ -400,6 +400,7 @@ actuation_config = SubResource("Resource_2gdqp")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Elevator"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.57628e-07, 0.29494)
+visible = false
 size = Vector3(2.0332, 0.113525, 1.14014)
 
 [node name="Rudder" type="Node3D" parent="."]
@@ -411,6 +412,7 @@ actuation_config = SubResource("Resource_diuqb")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Rudder"]
 transform = Transform3D(-4.37114e-08, 0.999742, -0.0227224, -1, -4.37001e-08, 9.93232e-10, 3.55271e-15, 0.0227224, 0.999742, 0.0151641, -6.6283e-10, 0.239923)
+visible = false
 size = Vector3(0.141602, 1.41797, 1.14014)
 
 [node name="WingL" type="Node3D" parent="."]
@@ -422,6 +424,7 @@ actuation_config = SubResource("Resource_vsrke")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="WingL"]
 transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0.0698701, 0, 0.269345)
+visible = false
 size = Vector3(3.67285, 0.113525, 1.14014)
 
 [node name="WingR" type="Node3D" parent="."]
@@ -433,6 +436,7 @@ actuation_config = SubResource("Resource_ojr5h")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="WingR"]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -0.0699999, 0, 0.269945)
+visible = false
 size = Vector3(3.67285, 0.113525, 1.14014)
 
 [node name="Camera3D" type="Camera3D" parent="."]
