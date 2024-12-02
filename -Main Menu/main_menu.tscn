@@ -201,7 +201,13 @@ shadow_enabled = true
 transform = Transform3D(-0.568591, 0, 0.822621, 0, 1, 0, -0.822621, 0, -0.568591, 0, 8.00415, -0.415251)
 gravity_scale = 0.0
 
-[node name="Control" parent="Plane/SubViewport/AeroBody3D" index="10"]
+[node name="Compassbar" parent="Plane/SubViewport/AeroBody3D" index="11"]
+visible = false
+
+[node name="Pause" parent="Plane/SubViewport/AeroBody3D" index="15"]
+visible = false
+
+[node name="UI" parent="Plane/SubViewport/AeroBody3D" index="16"]
 visible = false
 
 [node name="Label2" type="Label" parent="."]
@@ -246,7 +252,7 @@ offset_bottom = 654.0
 theme_override_colors/font_color = Color(0.643137, 1, 1, 0.933333)
 theme_override_fonts/font = ExtResource("2_ypwep")
 theme_override_font_sizes/font_size = 20
-text = "0.1.1.6"
+text = "0.1.1.8"
 horizontal_alignment = 2
 
 [connection signal="pressed" from="Buttons/VBoxContainer2/Start" to="." method="_on_start_pressed"]

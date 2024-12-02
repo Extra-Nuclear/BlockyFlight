@@ -1,8 +1,9 @@
-[gd_scene load_steps=47 format=3 uid="uid://dxv2r42s0tgk3"]
+[gd_scene load_steps=51 format=3 uid="uid://dxv2r42s0tgk3"]
 
 [ext_resource type="Texture2D" uid="uid://vlm4qjva4pnk" path="res://-Media/grass.jpg" id="1_78xof"]
 [ext_resource type="PackedScene" uid="uid://dbwdrv7nf30so" path="res://-Planes/cessna_180_test/cessna_aero_test.tscn" id="2_dpfl3"]
 [ext_resource type="FontFile" uid="uid://b6rkmc1gihof2" path="res://-Media/¬Fonts/Ubuntu-Bold.ttf" id="2_ythh5"]
+[ext_resource type="PackedScene" uid="uid://fc58rutngptj" path="res://-Assets/Taxi Sign/sign.tscn" id="3_h67du"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tjsy2"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -97,10 +98,10 @@ depth = 0.01
 
 [sub_resource type="Curve3D" id="Curve3D_5axh4"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 172.1, 0, 572.256, 0, 0, 0, 0, 0, 0, 172.142, 0, 593.177, 0, 0, 0, 0, 0, 0, 164.029, 0, 602.001, 0, 0, 0, 0, 0, 0, 146.107, 0, 605.853, 0, 0, 0, 0, 0, 0, 93.1348, 0, 605.029, 0, 0, 0, 0, 0, 0, 44.3054, 0, 587.996, 0, 0, 0, 0, 0, 0, 12.9132, 0, 554.345, 0, 0, 0, 0, 0, 0, -0.381432, 0, 525.152, 0, 0, 0, 0, 0, 0, -0.276962, 0.0645752, 512.102),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 165.311, 0, 384.484, 0, 0, 0, 0, 0, 0, 165.311, 0, 593.177, 0, 0, 0, 0, 0, 0, 159.085, 0, 602.001, 0, 0, 0, 0, 0, 0, 146.107, 0, 605.853, 0, 0, 0, 0, 0, 0, 93.1348, 0, 605.029, 0, 0, 0, 0, 0, 0, 44.3054, 0, 587.996, 0, 0, 0, 0, 0, 0, 12.9132, 0, 554.345, 0, 0, 0, 0, 0, 0, -0.381432, 0, 525.152),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 9
+point_count = 8
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4ehl"]
 albedo_color = Color(1, 1, 0, 1)
@@ -168,6 +169,19 @@ size = Vector3(0.7, 0.1, 48)
 [sub_resource type="BoxMesh" id="BoxMesh_fthje"]
 size = Vector3(0.7, 0.1, 52)
 
+[sub_resource type="TextMesh" id="TextMesh_gp3xe"]
+text = "0"
+font_size = 14
+depth = 0.01
+
+[sub_resource type="TextMesh" id="TextMesh_soyog"]
+text = "<¬"
+font_size = 14
+depth = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t38e5"]
+albedo_color = Color(0.909804, 0.0666667, 0, 1)
+
 [node name="Map 1" type="Node3D"]
 
 [node name="Lighting" type="Node3D" parent="."]
@@ -182,6 +196,7 @@ shadow_enabled = true
 [node name="Landscape" type="Node3D" parent="."]
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="Landscape"]
+use_collision = true
 mesh = SubResource("PlaneMesh_1vwrj")
 
 [node name="Airport 1" type="Node3D" parent="."]
@@ -485,19 +500,23 @@ use_collision = true
 mesh = SubResource("BoxMesh_agcrd")
 
 [node name="Hanger" type="Node3D" parent="Airport 1/Terminal"]
+transform = Transform3D(0.99971, 0, 0.0241007, 0, 1, 0, -0.0241007, 0, 0.99971, -5.068, 0, -3.539)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Airport 1/Terminal/Hanger"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 255.851, 6.62034, 414.716)
+use_collision = true
 size = Vector3(31.8994, 16.0655, 69.4228)
 material = SubResource("StandardMaterial3D_6014a")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Airport 1/Terminal/Hanger"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 255.851, 15.7659, 414.716)
+use_collision = true
 size = Vector3(31.8994, 3.64065, 69.4228)
 material = SubResource("StandardMaterial3D_cr4tu")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Airport 1/Terminal/Hanger"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 243.964, 15.7595, 390.263)
+use_collision = true
 size = Vector3(9.8457, 4.43262, 8.48669)
 material = SubResource("StandardMaterial3D_5d40d")
 
@@ -505,6 +524,7 @@ material = SubResource("StandardMaterial3D_5d40d")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-L"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 243.964, 6.78956, 397.655)
+use_collision = true
 size = Vector3(9.8457, 12.2146, 24.9889)
 material = SubResource("StandardMaterial3D_nvd0s")
 
@@ -589,6 +609,7 @@ material = SubResource("StandardMaterial3D_xnu56")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-R"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 243.964, 6.78956, 432.413)
+use_collision = true
 size = Vector3(9.8457, 12.2146, 24.9889)
 material = SubResource("StandardMaterial3D_nvd0s")
 
@@ -756,6 +777,8 @@ transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 253.386, 16.761, 384
 size = Vector3(5.93945, 2.08277, 1.14169)
 material = SubResource("StandardMaterial3D_24c7s")
 
+[node name="Terminal Building" type="Node3D" parent="Airport 1/Terminal"]
+
 [node name="Taxi Way" type="Node3D" parent="Airport 1"]
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="Airport 1/Taxi Way"]
@@ -800,8 +823,34 @@ mesh = SubResource("BoxMesh_s1sdi")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 120.536, 0.46, 589.295)
 mesh = SubResource("BoxMesh_fthje")
 
-[node name="AeroBody3D" parent="." instance=ExtResource("2_dpfl3")]
-transform = Transform3D(-4.37114e-08, 0.166769, 0.985996, 0, 0.985996, -0.166769, -1, -7.28969e-09, -4.30993e-08, 137.172, 3.76078, 604.659)
+[node name="0 ; A" parent="Airport 1/Taxi Way" instance=ExtResource("3_h67du")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 131.77, 0.0256255, 588.353)
 
-[node name="AeroBody3D2" parent="." instance=ExtResource("2_dpfl3")]
-transform = Transform3D(-4.37114e-08, 0.166769, 0.985996, 0, 0.985996, -0.166769, -1, -7.28969e-09, -4.30993e-08, 229.116, 2.64054, 398.067)
+[node name="RUNWAY" parent="Airport 1/Taxi Way/0 ; A/Changable/YELLOW BOX" index="4"]
+mesh = SubResource("TextMesh_gp3xe")
+
+[node name="RUNWAY" parent="Airport 1/Taxi Way/0 ; A/Changable/YELLOW BOX2" index="4"]
+transform = Transform3D(-0.582944, -1.0704, 4.84917, 2.31925, 4.25858, 1.21884, -4.39104, 2.39139, -3.11148e-07, 0.882352, 0.992892, -0.517258)
+visible = false
+mesh = SubResource("TextMesh_soyog")
+
+[node name="RUNWAY2" type="CSGMesh3D" parent="Airport 1/Taxi Way/0 ; A/Changable/YELLOW BOX2" index="5"]
+transform = Transform3D(0.512567, -1.04444, -4.86276, -2.52786, 4.15533, -1.15895, 4.28336, 2.57729, -0.102064, 0.875242, 1.02118, -0.499714)
+mesh = SubResource("TextMesh_soyog")
+material = SubResource("StandardMaterial3D_t38e5")
+
+[node name="0 ; A (2)" parent="Airport 1/Taxi Way" instance=ExtResource("3_h67du")]
+transform = Transform3D(1.14884, 0, -1.3857, 0, 1.8, 0, 1.3857, 0, 1.14884, 33.4358, 0.0256255, 553.776)
+
+[node name="RUNWAY" parent="Airport 1/Taxi Way/0 ; A (2)/Changable/YELLOW BOX" index="4"]
+mesh = SubResource("TextMesh_gp3xe")
+
+[node name="RUNWAY" parent="Airport 1/Taxi Way/0 ; A (2)/Changable/YELLOW BOX2" index="4"]
+transform = Transform3D(0.512567, -1.04444, -4.86276, -2.52786, 4.15533, -1.15895, 4.28336, 2.57729, -0.102064, 0.875242, 1.02118, -0.499714)
+mesh = SubResource("TextMesh_soyog")
+
+[node name="AeroBody3D" parent="." instance=ExtResource("2_dpfl3")]
+transform = Transform3D(-0.999841, 0.00297162, 0.0175694, -4.44089e-16, 0.985996, -0.166769, -0.0178189, -0.166743, -0.98584, 164.978, 2.29644, 589.256)
+
+[editable path="Airport 1/Taxi Way/0 ; A"]
+[editable path="Airport 1/Taxi Way/0 ; A (2)"]

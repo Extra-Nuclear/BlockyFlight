@@ -1,0 +1,275 @@
+[gd_scene load_steps=12 format=3 uid="uid://c8gmslsileh5x"]
+
+[ext_resource type="Script" path="res://-UI/pause.gd" id="1_1s5rh"]
+[ext_resource type="Shader" path="res://-UI/Pause.gdshader" id="1_dgjag"]
+[ext_resource type="FontFile" uid="uid://b6rkmc1gihof2" path="res://-Media/¬Fonts/Ubuntu-Bold.ttf" id="2_kh5c1"]
+[ext_resource type="StyleBox" uid="uid://cjf532kmes4ba" path="res://-Main Menu/¬Styles/Main-Menu-Buttons.tres" id="3_8bmki"]
+[ext_resource type="StyleBox" uid="uid://b3c78s32vll8t" path="res://-Main Menu/¬Styles/main_menu_hover.tres" id="4_5k1nq"]
+[ext_resource type="FontFile" uid="uid://ox7oe5j08pi8" path="res://-Media/¬Fonts/Prompt-Bold.ttf" id="5_eurfn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3qhvs"]
+shader = ExtResource("1_dgjag")
+shader_parameter/lod = 0.0
+
+[sub_resource type="Animation" id="Animation_wipv8"]
+resource_name = "blur"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.8]
+}
+
+[sub_resource type="Animation" id="Animation_xy4ob"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wofxj"]
+_data = {
+"RESET": SubResource("Animation_xy4ob"),
+"blur": SubResource("Animation_wipv8")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6hq07"]
+bg_color = Color(0.0156863, 0.0156863, 0.0313726, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[node name="Pause" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1s5rh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_3qhvs")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wofxj")
+}
+
+[node name="Main UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Main UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -191.5
+offset_top = -237.0
+offset_right = 191.5
+offset_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6hq07")
+
+[node name="Buttons" type="Control" parent="Main UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Main UI/Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = -52.0
+offset_right = 97.0
+offset_bottom = 218.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="Main UI/Buttons/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.448582, 1, 0.997263, 1)
+theme_override_colors/font_pressed_color = Color(1.15514e-06, 0.976725, 0.975504, 1)
+theme_override_colors/font_focus_color = Color(0.811765, 1, 0.996078, 1)
+theme_override_colors/font_color = Color(0.810148, 1, 0.997761, 1)
+theme_override_colors/font_outline_color = Color(0, 0.0470588, 0.14902, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_kh5c1")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = ExtResource("3_8bmki")
+theme_override_styles/hover_pressed = ExtResource("3_8bmki")
+theme_override_styles/hover = ExtResource("4_5k1nq")
+theme_override_styles/pressed = ExtResource("3_8bmki")
+theme_override_styles/normal = ExtResource("3_8bmki")
+text = "Resume"
+expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Main UI/Buttons/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Settings" type="Button" parent="Main UI/Buttons/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.448582, 1, 0.997263, 1)
+theme_override_colors/font_pressed_color = Color(1.15514e-06, 0.976725, 0.975504, 1)
+theme_override_colors/font_focus_color = Color(0.811765, 1, 0.996078, 1)
+theme_override_colors/font_color = Color(0.810148, 1, 0.997761, 1)
+theme_override_colors/font_outline_color = Color(0, 0.0470588, 0.14902, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_kh5c1")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = ExtResource("3_8bmki")
+theme_override_styles/hover_pressed = ExtResource("3_8bmki")
+theme_override_styles/hover = ExtResource("4_5k1nq")
+theme_override_styles/pressed = ExtResource("3_8bmki")
+theme_override_styles/normal = ExtResource("3_8bmki")
+text = "Settings"
+expand_icon = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="Main UI/Buttons/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Credits" type="Button" parent="Main UI/Buttons/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.448582, 1, 0.997263, 1)
+theme_override_colors/font_pressed_color = Color(1.15514e-06, 0.976725, 0.975504, 1)
+theme_override_colors/font_focus_color = Color(0.811765, 1, 0.996078, 1)
+theme_override_colors/font_color = Color(0.810148, 1, 0.997761, 1)
+theme_override_colors/font_outline_color = Color(0, 0.0470588, 0.14902, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_kh5c1")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = ExtResource("3_8bmki")
+theme_override_styles/hover_pressed = ExtResource("3_8bmki")
+theme_override_styles/hover = ExtResource("4_5k1nq")
+theme_override_styles/pressed = ExtResource("3_8bmki")
+theme_override_styles/normal = ExtResource("3_8bmki")
+text = "Main Menu"
+expand_icon = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="Main UI/Buttons/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Quit" type="Button" parent="Main UI/Buttons/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.448582, 1, 0.997263, 1)
+theme_override_colors/font_pressed_color = Color(1.15514e-06, 0.976725, 0.975504, 1)
+theme_override_colors/font_focus_color = Color(0.811765, 1, 0.996078, 1)
+theme_override_colors/font_color = Color(0.810148, 1, 0.997761, 1)
+theme_override_colors/font_outline_color = Color(0, 0.0470588, 0.14902, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_kh5c1")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = ExtResource("3_8bmki")
+theme_override_styles/hover_pressed = ExtResource("3_8bmki")
+theme_override_styles/hover = ExtResource("4_5k1nq")
+theme_override_styles/pressed = ExtResource("3_8bmki")
+theme_override_styles/normal = ExtResource("3_8bmki")
+text = "Quit
+"
+expand_icon = true
+
+[node name="Text" type="Control" parent="Main UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Main UI/Text"]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 137.0
+offset_right = 666.0
+offset_bottom = 234.0
+theme_override_fonts/font = ExtResource("5_eurfn")
+theme_override_font_sizes/font_size = 30
+text = "PAUSED
+"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Main UI/Text"]
+offset_left = 453.0
+offset_top = 179.0
+offset_right = 700.0
+offset_bottom = 276.0
+theme_override_fonts/font = ExtResource("5_eurfn")
+theme_override_font_sizes/font_size = 30
+text = "================"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Main UI"]
+offset_left = 297.0
+offset_top = 83.0
+offset_right = 616.0
+offset_bottom = 161.0
+theme_override_colors/font_color = Color(0.541176, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.47451, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0.0465177, 0.14727, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_eurfn")
+theme_override_font_sizes/font_size = 20
+text = "Blocky Flight"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Main UI"]
+offset_left = 266.0
+offset_top = 110.0
+offset_right = 585.0
+offset_bottom = 187.0
+theme_override_colors/font_color = Color(0.541176, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.47451, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0.0465177, 0.14727, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_eurfn")
+theme_override_font_sizes/font_size = 10
+text = "Early Access"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Main UI/Buttons/VBoxContainer2/Resume" to="." method="_on_resume_pressed"]

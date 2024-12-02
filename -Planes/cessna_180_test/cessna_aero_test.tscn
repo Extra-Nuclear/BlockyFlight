@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://dbwdrv7nf30so"]
+[gd_scene load_steps=60 format=3 uid="uid://dbwdrv7nf30so"]
 
 [ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/core/aero_body_3d.gd" id="1_c61wq"]
 [ext_resource type="PackedScene" uid="uid://66jn0jhwtsrh" path="res://-Planes/cessna_180/cessna_180_skywagon.glb" id="2_ma4qe"]
@@ -17,6 +17,9 @@
 [ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/core/control_configs/aero_influencer_control_config.gd" id="15_qe1hq"]
 [ext_resource type="PackedScene" uid="uid://cjpovgx86rfb0" path="res://addons/compass/entities/compassbar.tscn" id="17_1tmdp"]
 [ext_resource type="Script" path="res://addons/godot_aerodynamic_physics/demo/control.gd" id="17_2omky"]
+[ext_resource type="PackedScene" uid="uid://c8gmslsileh5x" path="res://-UI/Pause.tscn" id="18_cc2c0"]
+[ext_resource type="Script" path="res://-Planes/cessna_180_test/ui.gd" id="19_15exb"]
+[ext_resource type="FontFile" uid="uid://b6rkmc1gihof2" path="res://-Media/¬Fonts/Ubuntu-Bold.ttf" id="20_g6l33"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dsrkh"]
 friction = 0.0
@@ -371,6 +374,13 @@ roll_config = SubResource("Resource_m474d")
 radius = 0.446985
 height = 2.92036
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0l52v"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 5
+
 [node name="AeroBody3D" type="VehicleBody3D"]
 mass = 850.0
 physics_material_override = SubResource("PhysicsMaterial_dsrkh")
@@ -447,9 +457,6 @@ transform = Transform3D(1, 0, 0, 0, 0.987072, 0.160277, 0, -0.160277, 0.987072, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.71996)
 script = ExtResource("11_ngcth")
 
-[node name="RayCast3D" type="RayCast3D" parent="AeroThrusterComponent"]
-target_position = Vector3(0, 0, -20)
-
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, -1.11638, -0.570498)
 shape = SubResource("CapsuleShape3D_266u1")
@@ -459,6 +466,7 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.2
 shape = SubResource("CapsuleShape3D_266u1")
 
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -537,13 +545,196 @@ use_as_steering = true
 wheel_radius = 0.255
 script = ExtResource("14_6n0cj")
 
+[node name="RayCast3D" type="RayCast3D" parent="VehicleWheel3D"]
+target_position = Vector3(0, 5, 20)
+
 [node name="VehicleWheel3D2" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.175, -1.28835, -0.544572)
 use_as_steering = true
 wheel_radius = 0.255
 script = ExtResource("14_6n0cj")
 
+[node name="RayCast3D" type="RayCast3D" parent="VehicleWheel3D2"]
+target_position = Vector3(0, 5, 20)
+
 [node name="VehicleWheel3D3" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.000140667, -0.143743, 5.4007)
 use_as_steering = true
 wheel_radius = 0.255
+
+[node name="Pause" parent="." instance=ExtResource("18_cc2c0")]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("19_15exb")
+
+[node name="Throttle" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="UI/Throttle"]
+layout_mode = 0
+offset_left = 1102.0
+offset_top = 624.0
+offset_right = 1205.0
+offset_bottom = 651.0
+rotation = 4.71239
+theme_override_styles/fill = SubResource("StyleBoxFlat_0l52v")
+value = 50.0
+show_percentage = false
+
+[node name="Panel" type="Panel" parent="UI/Throttle"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -131.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Throttle"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -33.0
+offset_right = -13.0
+offset_bottom = 7.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="UI/Throttle/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("20_g6l33")
+text = "100"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="UI/Throttle/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("20_g6l33")
+text = "%"
+horizontal_alignment = 1
+
+[node name="Speed" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="UI/Speed"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -160.0
+offset_right = -2.0
+offset_bottom = -135.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Speed"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -160.0
+offset_right = -2.0
+offset_bottom = -135.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 1
+
+[node name="Label3" type="Label" parent="UI/Speed/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("20_g6l33")
+theme_override_font_sizes/font_size = 10
+text = "Speed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="UI/Speed/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("20_g6l33")
+theme_override_font_sizes/font_size = 13
+text = "500"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Alt" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="UI/Alt"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -189.0
+offset_right = -2.0
+offset_bottom = -164.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Alt"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -189.0
+offset_right = -2.0
+offset_bottom = -164.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 1
+
+[node name="Label3" type="Label" parent="UI/Alt/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("20_g6l33")
+theme_override_font_sizes/font_size = 10
+text = "Alt."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="UI/Alt/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("20_g6l33")
+theme_override_font_sizes/font_size = 13
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1

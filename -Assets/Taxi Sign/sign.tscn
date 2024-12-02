@@ -1,0 +1,210 @@
+[gd_scene load_steps=10 format=3 uid="uid://fc58rutngptj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83yqx"]
+albedo_color = Color(0.0846899, 0.0846899, 0.0846899, 1)
+
+[sub_resource type="Gradient" id="Gradient_8uadd"]
+offsets = PackedFloat32Array(0.243816, 1)
+colors = PackedColorArray(0.347817, 0.347817, 0.347817, 1, 0.29219, 0.29219, 0.29219, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2lcth"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r7atm"]
+color_ramp = SubResource("Gradient_8uadd")
+noise = SubResource("FastNoiseLite_2lcth")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k2h1h"]
+albedo_texture = SubResource("NoiseTexture2D_r7atm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t38e5"]
+albedo_color = Color(0.909804, 0.0666667, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_0v8dc"]
+text = "18"
+font_size = 14
+depth = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwf56"]
+albedo_color = Color(0.921569, 0.709804, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_mn05d"]
+text = "A"
+font_size = 14
+depth = 0.01
+
+[node name="Sign" type="Node3D"]
+
+[node name="Static" type="Node3D" parent="."]
+
+[node name="Main Body" type="CSGPolygon3D" parent="Static"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.402784, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 0.2, 0.2, 1, 0.8, 1, 0.8, 1, 1, 0.2, 1, 0)
+depth = 2.3
+material = SubResource("StandardMaterial3D_83yqx")
+
+[node name="Leg1" type="CSGCylinder3D" parent="Static"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.239597, 0.204578, -0.159526)
+radius = 0.08
+height = 0.5
+sides = 12
+
+[node name="Leg3" type="CSGCylinder3D" parent="Static"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.239597, 0.204578, -1.4935)
+radius = 0.08
+height = 0.5
+sides = 12
+
+[node name="Leg4" type="CSGCylinder3D" parent="Static"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.239597, 0.204578, -0.773154)
+radius = 0.08
+height = 0.5
+sides = 12
+
+[node name="Leg5" type="CSGCylinder3D" parent="Static"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.239597, 0.204578, -2.16049)
+radius = 0.08
+height = 0.5
+sides = 12
+
+[node name="Leg6" type="CSGCylinder3D" parent="Static"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.746508, 0.204578, -0.159526)
+radius = 0.08
+height = 0.5
+sides = 12
+
+[node name="Leg8" type="CSGCylinder3D" parent="Static"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.746508, 0.204578, -1.4935)
+radius = 0.08
+height = 0.5
+sides = 12
+
+[node name="Leg9" type="CSGCylinder3D" parent="Static"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.746508, 0.204578, -0.773154)
+radius = 0.08
+height = 0.5
+sides = 12
+
+[node name="Leg10" type="CSGCylinder3D" parent="Static"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.746508, 0.204578, -2.16049)
+radius = 0.08
+height = 0.5
+sides = 12
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Static"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.478936, -0.0114305, -1.18275)
+size = Vector3(1.2, 0.228516, 2.89642)
+material = SubResource("StandardMaterial3D_k2h1h")
+
+[node name="Changable" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0679843)
+
+[node name="YELLOW BOX" type="Node3D" parent="Changable"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Changable/YELLOW BOX"]
+transform = Transform3D(-4.37114e-08, -0.243615, 0.969872, 0, 0.969872, 0.243615, -1, 1.06488e-08, -4.23945e-08, 0.890418, 0.99436, -0.0770096)
+size = Vector3(0.0323486, 0.702271, 0.0515137)
+material = SubResource("StandardMaterial3D_t38e5")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Changable/YELLOW BOX"]
+transform = Transform3D(-4.37114e-08, -0.243615, 0.969872, 0, 0.969872, 0.243615, -1, 1.06488e-08, -4.23945e-08, 0.890418, 0.99436, -0.979696)
+size = Vector3(0.0323486, 0.702271, 0.0515137)
+material = SubResource("StandardMaterial3D_t38e5")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Changable/YELLOW BOX"]
+transform = Transform3D(-0.243615, 5.43601e-08, 0.969872, 0.969872, -4.23944e-08, 0.243615, 5.43601e-08, 1, -4.23945e-08, 0.809382, 1.31903, -0.526206)
+size = Vector3(0.0323486, 0.873871, 0.0515137)
+material = SubResource("StandardMaterial3D_t38e5")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Changable/YELLOW BOX"]
+transform = Transform3D(-0.243615, 5.43601e-08, 0.969872, 0.969872, -4.23944e-08, 0.243615, 5.43601e-08, 1, -4.23945e-08, 0.97149, 0.669741, -0.526206)
+size = Vector3(0.0323486, 0.873871, 0.0515137)
+material = SubResource("StandardMaterial3D_t38e5")
+
+[node name="RUNWAY" type="CSGMesh3D" parent="Changable/YELLOW BOX"]
+transform = Transform3D(-2.11964e-07, -1.21884, 4.84917, -5.32771e-08, 4.84917, 1.21884, -5, 3.8402e-15, -2.18557e-07, 0.882352, 0.992892, -0.517258)
+mesh = SubResource("TextMesh_0v8dc")
+material = SubResource("StandardMaterial3D_t38e5")
+
+[node name="RED BOX" type="Node3D" parent="Changable"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Changable/RED BOX"]
+transform = Transform3D(-4.37114e-08, -0.243615, 0.969872, 0, 0.969872, 0.243615, -1, 1.06488e-08, -4.23945e-08, 0.890418, 0.99436, -1.12338)
+size = Vector3(0.0323486, 0.702271, 0.0515137)
+material = SubResource("StandardMaterial3D_rwf56")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Changable/RED BOX"]
+transform = Transform3D(-4.37114e-08, -0.243615, 0.969872, 0, 0.969872, 0.243615, -1, 1.06488e-08, -4.23945e-08, 0.890418, 0.99436, -2.02607)
+size = Vector3(0.0323486, 0.702271, 0.0515137)
+material = SubResource("StandardMaterial3D_rwf56")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Changable/RED BOX"]
+transform = Transform3D(-0.243615, 5.43601e-08, 0.969872, 0.969872, -4.23944e-08, 0.243615, 5.43601e-08, 1, -4.23945e-08, 0.809382, 1.31903, -1.57258)
+size = Vector3(0.0323486, 0.873871, 0.0515137)
+material = SubResource("StandardMaterial3D_rwf56")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Changable/RED BOX"]
+transform = Transform3D(-0.243615, 5.43601e-08, 0.969872, 0.969872, -4.23944e-08, 0.243615, 5.43601e-08, 1, -4.23945e-08, 0.97149, 0.669741, -1.57258)
+size = Vector3(0.0323486, 0.873871, 0.0515137)
+material = SubResource("StandardMaterial3D_rwf56")
+
+[node name="RUNWAY" type="CSGMesh3D" parent="Changable/RED BOX"]
+transform = Transform3D(-2.11964e-07, -1.21884, 4.84917, -5.32771e-08, 4.84917, 1.21884, -5, 3.8402e-15, -2.18557e-07, 0.882352, 0.992892, -1.56265)
+mesh = SubResource("TextMesh_mn05d")
+material = SubResource("StandardMaterial3D_rwf56")
+
+[node name="YELLOW BOX2" type="Node3D" parent="Changable"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.993697, -0.00987858, -2.14869)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Changable/YELLOW BOX2"]
+transform = Transform3D(-4.37114e-08, -0.243615, 0.969872, 0, 0.969872, 0.243615, -1, 1.06488e-08, -4.23945e-08, 0.890418, 0.99436, -0.0770096)
+size = Vector3(0.0323486, 0.702271, 0.0515137)
+material = SubResource("StandardMaterial3D_t38e5")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Changable/YELLOW BOX2"]
+transform = Transform3D(-4.37114e-08, -0.243615, 0.969872, 0, 0.969872, 0.243615, -1, 1.06488e-08, -4.23945e-08, 0.890418, 0.99436, -0.979696)
+size = Vector3(0.0323486, 0.702271, 0.0515137)
+material = SubResource("StandardMaterial3D_t38e5")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Changable/YELLOW BOX2"]
+transform = Transform3D(-0.243615, 5.43601e-08, 0.969872, 0.969872, -4.23944e-08, 0.243615, 5.43601e-08, 1, -4.23945e-08, 0.809382, 1.31903, -0.526206)
+size = Vector3(0.0323486, 0.873871, 0.0515137)
+material = SubResource("StandardMaterial3D_t38e5")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Changable/YELLOW BOX2"]
+transform = Transform3D(-0.243615, 5.43601e-08, 0.969872, 0.969872, -4.23944e-08, 0.243615, 5.43601e-08, 1, -4.23945e-08, 0.97149, 0.669741, -0.526206)
+size = Vector3(0.0323486, 0.873871, 0.0515137)
+material = SubResource("StandardMaterial3D_t38e5")
+
+[node name="RUNWAY" type="CSGMesh3D" parent="Changable/YELLOW BOX2"]
+transform = Transform3D(-2.11964e-07, -1.21884, 4.84917, -5.32771e-08, 4.84917, 1.21884, -5, 3.8402e-15, -2.18557e-07, 0.882352, 0.992892, -0.517258)
+mesh = SubResource("TextMesh_0v8dc")
+material = SubResource("StandardMaterial3D_t38e5")
+
+[node name="RED BOX2" type="Node3D" parent="Changable"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.993697, -0.00987858, -2.14869)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Changable/RED BOX2"]
+transform = Transform3D(-4.37114e-08, -0.243615, 0.969872, 0, 0.969872, 0.243615, -1, 1.06488e-08, -4.23945e-08, 0.890418, 0.99436, -1.12338)
+size = Vector3(0.0323486, 0.702271, 0.0515137)
+material = SubResource("StandardMaterial3D_rwf56")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Changable/RED BOX2"]
+transform = Transform3D(-4.37114e-08, -0.243615, 0.969872, 0, 0.969872, 0.243615, -1, 1.06488e-08, -4.23945e-08, 0.890418, 0.99436, -2.02607)
+size = Vector3(0.0323486, 0.702271, 0.0515137)
+material = SubResource("StandardMaterial3D_rwf56")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Changable/RED BOX2"]
+transform = Transform3D(-0.243615, 5.43601e-08, 0.969872, 0.969872, -4.23944e-08, 0.243615, 5.43601e-08, 1, -4.23945e-08, 0.809382, 1.31903, -1.57258)
+size = Vector3(0.0323486, 0.873871, 0.0515137)
+material = SubResource("StandardMaterial3D_rwf56")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Changable/RED BOX2"]
+transform = Transform3D(-0.243615, 5.43601e-08, 0.969872, 0.969872, -4.23944e-08, 0.243615, 5.43601e-08, 1, -4.23945e-08, 0.97149, 0.669741, -1.57258)
+size = Vector3(0.0323486, 0.873871, 0.0515137)
+material = SubResource("StandardMaterial3D_rwf56")
+
+[node name="RUNWAY" type="CSGMesh3D" parent="Changable/RED BOX2"]
+transform = Transform3D(-2.11964e-07, -1.21884, 4.84917, -5.32771e-08, 4.84917, 1.21884, -5, 3.8402e-15, -2.18557e-07, 0.882352, 0.992892, -1.56265)
+mesh = SubResource("TextMesh_mn05d")
+material = SubResource("StandardMaterial3D_rwf56")
