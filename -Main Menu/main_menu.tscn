@@ -41,6 +41,8 @@ script = ExtResource("1_gsbf4")
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
 modulate = Color(0.851769, 0.851769, 0.851769, 1)
+texture_filter = 1
+texture_repeat = 1
 offset_left = -14.0
 offset_right = 1928.0
 offset_bottom = 1080.0
@@ -199,7 +201,7 @@ shadow_enabled = true
 transform = Transform3D(-0.568591, 0, 0.822621, 0, 1, 0, -0.822621, 0, -0.568591, 0, 8.00415, -0.415251)
 gravity_scale = 0.0
 
-[node name="Control" parent="Plane/SubViewport/AeroBody3D" index="13"]
+[node name="Control" parent="Plane/SubViewport/AeroBody3D" index="10"]
 visible = false
 
 [node name="Label2" type="Label" parent="."]

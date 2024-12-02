@@ -63,7 +63,7 @@ func update_flight_assist(delta : float) -> void:
 	
 	aero_body.control_command = flight_assist.control_command
 	aero_body.throttle_command = flight_assist.throttle_command
-	print(aero_body.throttle_command)
+	#print(aero_body.throttle_command)
 func set_control_input(value : Vector3) -> void:
 	pitch_control_config.input = value.x
 	yaw_control_config.input = value.y
