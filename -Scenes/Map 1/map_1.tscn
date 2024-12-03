@@ -1,9 +1,10 @@
-[gd_scene load_steps=51 format=3 uid="uid://dxv2r42s0tgk3"]
+[gd_scene load_steps=69 format=3 uid="uid://dxv2r42s0tgk3"]
 
 [ext_resource type="Texture2D" uid="uid://vlm4qjva4pnk" path="res://-Media/grass.jpg" id="1_78xof"]
 [ext_resource type="PackedScene" uid="uid://dbwdrv7nf30so" path="res://-Planes/cessna_180_test/cessna_aero_test.tscn" id="2_dpfl3"]
 [ext_resource type="FontFile" uid="uid://b6rkmc1gihof2" path="res://-Media/¬Fonts/Ubuntu-Bold.ttf" id="2_ythh5"]
 [ext_resource type="PackedScene" uid="uid://fc58rutngptj" path="res://-Assets/Taxi Sign/sign.tscn" id="3_h67du"]
+[ext_resource type="Texture2D" uid="uid://dcbtx7bti3rv1" path="res://-Media/no-entry.png" id="3_qkljf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tjsy2"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -106,6 +107,34 @@ point_count = 8
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4ehl"]
 albedo_color = Color(1, 1, 0, 1)
 
+[sub_resource type="Curve3D" id="Curve3D_ncxly"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 164.993, 2.25, 529.111, 0, 0, 0, 0, 0, 0, 169.985, 2.25, 512.055, 0, 0, 0, 0, 0, 0, 179.553, 2.25, 501.655, 0, 0, 0, 0, 0, 0, 216.577, 2.25, 501.655),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_nu5ms"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 217, 2.25, 497.323, 0, 0, 0, 0, 0, 0, 217, 2.25, 506.407),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_2bsx1"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 164.993, 2.25, 587.305, 0, 0, 0, 0, 0, 0, 169.985, 2.25, 570.249, 0, 0, 0, 0, 0, 0, 173.448, 2.25, 563.369, 0, 0, 0, 0, 0, 0, 179.553, 2.25, 559.849, 0, 0, 0, 0, 0, 0, 216.577, 2.25, 559.849),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Curve3D" id="Curve3D_qejvl"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 217, 2.25, 555.312, 0, 0, 0, 0, 0, 0, 217, 2.25, 564.396),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wq7xv"]
 albedo_texture = SubResource("NoiseTexture2D_g7js3")
 uv1_scale = Vector3(30, 60, 600)
@@ -132,6 +161,60 @@ albedo_color = Color(0.65834, 0.65834, 0.65834, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_24c7s"]
 albedo_color = Color(0.462291, 0.462291, 0.462291, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0onh8"]
+albedo_color = Color(0.593134, 0.593134, 0.593134, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_atjhv"]
+albedo_color = Color(0.419813, 0.419813, 0.419813, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hkmxs"]
+albedo_color = Color(0.687215, 0.687215, 0.687215, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xyxlc"]
+albedo_color = Color(0.489622, 0.489622, 0.489622, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6eojs"]
+albedo_color = Color(0.412152, 0.412152, 0.412152, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o1br7"]
+
+[sub_resource type="TextMesh" id="TextMesh_087e1"]
+material = SubResource("StandardMaterial3D_o1br7")
+text = "ARRIVAL"
+font = ExtResource("2_ythh5")
+font_size = 110
+depth = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6utco"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.686275, 1, 1, 0.705882)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cnylf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwb4f"]
+albedo_color = Color(0.419813, 0.419813, 0.419813, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_42r2p"]
+material = SubResource("StandardMaterial3D_o1br7")
+text = "DEPARTURE"
+font = ExtResource("2_ythh5")
+font_size = 90
+depth = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_345rn"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.627451, 1, 1, 0.192157)
+albedo_texture = ExtResource("3_qkljf")
+
+[sub_resource type="TextMesh" id="TextMesh_c27bi"]
+material = SubResource("StandardMaterial3D_o1br7")
+text = "STAFF"
+font = ExtResource("2_ythh5")
+font_size = 90
+depth = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qca0c"]
 albedo_texture = SubResource("NoiseTexture2D_g7js3")
@@ -491,6 +574,83 @@ path_joined = false
 smooth_faces = true
 material = SubResource("StandardMaterial3D_g4ehl")
 
+[node name="Branch 2" type="Path3D" parent="Airport 1/Runway/Markings/Yellow Markings"]
+curve = SubResource("Curve3D_ncxly")
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="Airport 1/Runway/Markings/Yellow Markings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.209, 2.651, -0.367)
+polygon = PackedVector2Array(0, 0, 0, 0.1, 0.5, 0.1, 0.5, 0)
+mode = 2
+path_node = NodePath("../Branch 2")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+smooth_faces = true
+material = SubResource("StandardMaterial3D_g4ehl")
+
+[node name="STOP" type="CSGPolygon3D" parent="Airport 1/Runway/Markings/Yellow Markings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171, 2.661, -0.367)
+polygon = PackedVector2Array(0, 0, 0, 0.1, 0.5, 0.1, 0.5, 0)
+mode = 2
+path_node = NodePath("../STOP MARKS")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+smooth_faces = true
+material = SubResource("StandardMaterial3D_g4ehl")
+
+[node name="STOP MARKS" type="Path3D" parent="Airport 1/Runway/Markings/Yellow Markings"]
+curve = SubResource("Curve3D_nu5ms")
+
+[node name="CSGPolygon3D4" type="CSGPolygon3D" parent="Airport 1/Runway/Markings/Yellow Markings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0256824, 4.91121, -0.367249)
+polygon = PackedVector2Array(0, 0, 0, 0.1, 0.5, 0.1, 0.5, 0)
+mode = 2
+path_node = NodePath("../Branch 3")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+smooth_faces = true
+material = SubResource("StandardMaterial3D_g4ehl")
+
+[node name="Branch 3" type="Path3D" parent="Airport 1/Runway/Markings/Yellow Markings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.26, 0)
+curve = SubResource("Curve3D_2bsx1")
+
+[node name="STOP2" type="CSGPolygon3D" parent="Airport 1/Runway/Markings/Yellow Markings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.026, 2.651, -0.367)
+polygon = PackedVector2Array(0, 0, 0, 0.1, 0.5, 0.1, 0.5, 0)
+mode = 2
+path_node = NodePath("../STOP MARKS2")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+smooth_faces = true
+material = SubResource("StandardMaterial3D_g4ehl")
+
+[node name="STOP MARKS2" type="Path3D" parent="Airport 1/Runway/Markings/Yellow Markings"]
+curve = SubResource("Curve3D_qejvl")
+
 [node name="Terminal" type="Node3D" parent="Airport 1"]
 
 [node name="CSGMesh3D3" type="CSGMesh3D" parent="Airport 1/Terminal"]
@@ -499,285 +659,854 @@ material_overlay = SubResource("StandardMaterial3D_oigxu")
 use_collision = true
 mesh = SubResource("BoxMesh_agcrd")
 
-[node name="Hanger" type="Node3D" parent="Airport 1/Terminal"]
+[node name="Hang UR SELF" type="Node3D" parent="Airport 1/Terminal"]
 transform = Transform3D(0.99971, 0, 0.0241007, 0, 1, 0, -0.0241007, 0, 0.99971, -5.068, 0, -3.539)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Airport 1/Terminal/Hanger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 255.851, 6.62034, 414.716)
+[node name="CSGBox3D" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 255.572, 6.62034, 426.273)
 use_collision = true
-size = Vector3(31.8994, 16.0655, 69.4228)
+size = Vector3(31.8994, 16.0655, 95.633)
 material = SubResource("StandardMaterial3D_6014a")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Airport 1/Terminal/Hanger"]
-transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 255.851, 15.7659, 414.716)
+[node name="CSGBox3D2" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 255.572, 15.7659, 426.273)
 use_collision = true
-size = Vector3(31.8994, 3.64065, 69.4228)
+size = Vector3(31.8994, 3.64065, 95.633)
 material = SubResource("StandardMaterial3D_cr4tu")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Airport 1/Terminal/Hanger"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 243.964, 15.7595, 390.263)
 use_collision = true
 size = Vector3(9.8457, 4.43262, 8.48669)
 material = SubResource("StandardMaterial3D_5d40d")
 
-[node name="Hanger-L" type="Node3D" parent="Airport 1/Terminal/Hanger"]
+[node name="Hanger-L" type="Node3D" parent="Airport 1/Terminal/Hang UR SELF"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.09)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-L"]
+[node name="CSGBox3D4" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-L"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 243.964, 6.78956, 397.655)
 use_collision = true
 size = Vector3(9.8457, 12.2146, 24.9889)
 material = SubResource("StandardMaterial3D_nvd0s")
 
-[node name="Rails" type="Node3D" parent="Airport 1/Terminal/Hanger/Hanger-L"]
+[node name="Rails" type="Node3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-L"]
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-L/Rails"]
+[node name="CSGBox3D4" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-L/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 12.2983, 397.606)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-L/Rails"]
+[node name="CSGBox3D5" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-L/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 11.4901, 397.606)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-L/Rails"]
+[node name="CSGBox3D6" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-L/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 10.6593, 397.606)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-L/Rails"]
+[node name="CSGBox3D7" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-L/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 9.85114, 397.606)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-L/Rails"]
+[node name="CSGBox3D8" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-L/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 9.07319, 397.606)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D9" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-L/Rails"]
+[node name="CSGBox3D9" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-L/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 8.26501, 397.606)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D10" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-L/Rails"]
+[node name="CSGBox3D10" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-L/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 7.43419, 397.606)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D11" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-L/Rails"]
+[node name="CSGBox3D11" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-L/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 6.62601, 397.606)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D12" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-L/Rails"]
+[node name="CSGBox3D12" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-L/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 5.71283, 397.606)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D13" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-L/Rails"]
+[node name="CSGBox3D13" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-L/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 4.90465, 397.606)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D14" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-L/Rails"]
+[node name="CSGBox3D14" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-L/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 4.07383, 397.606)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D15" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-L/Rails"]
+[node name="CSGBox3D15" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-L/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 3.26565, 397.606)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D16" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-L/Rails"]
+[node name="CSGBox3D16" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-L/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 2.4877, 397.606)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D17" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-L/Rails"]
+[node name="CSGBox3D17" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-L/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 1.67951, 397.606)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D18" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-L/Rails"]
+[node name="CSGBox3D18" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-L/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 0.848695, 397.606)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="Hanger-R" type="Node3D" parent="Airport 1/Terminal/Hanger"]
+[node name="Hanger-M" type="Node3D" parent="Airport 1/Terminal/Hang UR SELF"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.965)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-R"]
+[node name="CSGBox3D4" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-M"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 243.964, 6.78956, 432.413)
 use_collision = true
 size = Vector3(9.8457, 12.2146, 24.9889)
 material = SubResource("StandardMaterial3D_nvd0s")
 
-[node name="Rails" type="Node3D" parent="Airport 1/Terminal/Hanger/Hanger-R"]
+[node name="Rails" type="Node3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-M"]
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-R/Rails"]
+[node name="CSGBox3D4" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-M/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 12.2983, 432.363)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-R/Rails"]
+[node name="CSGBox3D5" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-M/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 11.4901, 432.363)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-R/Rails"]
+[node name="CSGBox3D6" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-M/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 10.6593, 432.363)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-R/Rails"]
+[node name="CSGBox3D7" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-M/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 9.85114, 432.363)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-R/Rails"]
+[node name="CSGBox3D8" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-M/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 9.07319, 432.363)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D9" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-R/Rails"]
+[node name="CSGBox3D9" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-M/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 8.26501, 432.363)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D10" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-R/Rails"]
+[node name="CSGBox3D10" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-M/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 7.43419, 432.363)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D11" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-R/Rails"]
+[node name="CSGBox3D11" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-M/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 6.62601, 432.363)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D12" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-R/Rails"]
+[node name="CSGBox3D12" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-M/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 5.71283, 432.363)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D13" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-R/Rails"]
+[node name="CSGBox3D13" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-M/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 4.90465, 432.363)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D14" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-R/Rails"]
+[node name="CSGBox3D14" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-M/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 4.07383, 432.363)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D15" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-R/Rails"]
+[node name="CSGBox3D15" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-M/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 3.26565, 432.363)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D16" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-R/Rails"]
+[node name="CSGBox3D16" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-M/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 2.4877, 432.363)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D17" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-R/Rails"]
+[node name="CSGBox3D17" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-M/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 1.67951, 432.363)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="CSGBox3D18" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Hanger-R/Rails"]
+[node name="CSGBox3D18" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-M/Rails"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 0.848695, 432.363)
 size = Vector3(0.188477, 0.492188, 24.2222)
 material = SubResource("StandardMaterial3D_xnu56")
 
-[node name="Roof Panels" type="Node3D" parent="Airport 1/Terminal/Hanger"]
+[node name="Roof Panels" type="Node3D" parent="Airport 1/Terminal/Hang UR SELF"]
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Roof Panels"]
+[node name="CSGBox3D4" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 265.763, 16.761, 388.241)
 size = Vector3(5.93945, 2.08277, 1.14169)
 material = SubResource("StandardMaterial3D_24c7s")
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Roof Panels"]
+[node name="CSGBox3D5" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 265.763, 16.761, 395.779)
 size = Vector3(5.93945, 2.08277, 1.14169)
 material = SubResource("StandardMaterial3D_24c7s")
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Roof Panels"]
+[node name="CSGBox3D6" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 265.763, 16.761, 403.77)
 size = Vector3(5.93945, 2.08277, 1.14169)
 material = SubResource("StandardMaterial3D_24c7s")
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Roof Panels"]
+[node name="CSGBox3D7" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 265.763, 16.761, 411.307)
 size = Vector3(5.93945, 2.08277, 1.14169)
 material = SubResource("StandardMaterial3D_24c7s")
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Roof Panels"]
+[node name="CSGBox3D8" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 265.763, 16.761, 419.216)
 size = Vector3(5.93945, 2.08277, 1.14169)
 material = SubResource("StandardMaterial3D_24c7s")
 
-[node name="CSGBox3D9" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Roof Panels"]
+[node name="CSGBox3D9" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 265.763, 16.761, 426.754)
 size = Vector3(5.93945, 2.08277, 1.14169)
 material = SubResource("StandardMaterial3D_24c7s")
 
-[node name="CSGBox3D10" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Roof Panels"]
+[node name="CSGBox3D10" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 265.763, 16.761, 434.745)
 size = Vector3(5.93945, 2.08277, 1.14169)
 material = SubResource("StandardMaterial3D_24c7s")
 
-[node name="CSGBox3D11" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Roof Panels"]
+[node name="CSGBox3D11" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 265.763, 16.761, 442.282)
 size = Vector3(5.93945, 2.08277, 1.14169)
 material = SubResource("StandardMaterial3D_24c7s")
 
-[node name="CSGBox3D12" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Roof Panels"]
+[node name="CSGBox3D12" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 253.386, 16.761, 391.905)
 size = Vector3(5.93945, 2.08277, 1.14169)
 material = SubResource("StandardMaterial3D_24c7s")
 
-[node name="CSGBox3D13" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Roof Panels"]
+[node name="CSGBox3D13" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 253.386, 16.761, 399.442)
 size = Vector3(5.93945, 2.08277, 1.14169)
 material = SubResource("StandardMaterial3D_24c7s")
 
-[node name="CSGBox3D14" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Roof Panels"]
+[node name="CSGBox3D14" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 253.386, 16.761, 407.433)
 size = Vector3(5.93945, 2.08277, 1.14169)
 material = SubResource("StandardMaterial3D_24c7s")
 
-[node name="CSGBox3D15" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Roof Panels"]
+[node name="CSGBox3D15" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 253.386, 16.761, 414.971)
 size = Vector3(5.93945, 2.08277, 1.14169)
 material = SubResource("StandardMaterial3D_24c7s")
 
-[node name="CSGBox3D16" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Roof Panels"]
+[node name="CSGBox3D16" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 253.386, 16.761, 422.88)
 size = Vector3(5.93945, 2.08277, 1.14169)
 material = SubResource("StandardMaterial3D_24c7s")
 
-[node name="CSGBox3D17" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Roof Panels"]
+[node name="CSGBox3D17" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 253.386, 16.761, 430.417)
 size = Vector3(5.93945, 2.08277, 1.14169)
 material = SubResource("StandardMaterial3D_24c7s")
 
-[node name="CSGBox3D18" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Roof Panels"]
+[node name="CSGBox3D18" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 253.386, 16.761, 438.408)
 size = Vector3(5.93945, 2.08277, 1.14169)
 material = SubResource("StandardMaterial3D_24c7s")
 
-[node name="CSGBox3D19" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Roof Panels"]
+[node name="CSGBox3D19" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 253.386, 16.761, 445.946)
 size = Vector3(5.93945, 2.08277, 1.14169)
 material = SubResource("StandardMaterial3D_24c7s")
 
-[node name="CSGBox3D20" type="CSGBox3D" parent="Airport 1/Terminal/Hanger/Roof Panels"]
+[node name="CSGBox3D20" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 253.386, 16.761, 384.344)
 size = Vector3(5.93945, 2.08277, 1.14169)
 material = SubResource("StandardMaterial3D_24c7s")
 
+[node name="CSGBox3D21" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 265.585, 16.761, 449.668)
+size = Vector3(5.93945, 2.08277, 1.14169)
+material = SubResource("StandardMaterial3D_24c7s")
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 253.208, 16.761, 453.332)
+size = Vector3(5.93945, 2.08277, 1.14169)
+material = SubResource("StandardMaterial3D_24c7s")
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 265.41, 16.761, 456.912)
+size = Vector3(5.93945, 2.08277, 1.14169)
+material = SubResource("StandardMaterial3D_24c7s")
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 253.033, 16.761, 460.576)
+size = Vector3(5.93945, 2.08277, 1.14169)
+material = SubResource("StandardMaterial3D_24c7s")
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 265.211, 16.761, 465.198)
+size = Vector3(5.93945, 2.08277, 1.14169)
+material = SubResource("StandardMaterial3D_24c7s")
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Roof Panels"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 252.834, 16.761, 468.862)
+size = Vector3(5.93945, 2.08277, 1.14169)
+material = SubResource("StandardMaterial3D_24c7s")
+
+[node name="Hanger-R" type="Node3D" parent="Airport 1/Terminal/Hang UR SELF"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 26.685)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-R"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 243.964, 6.78956, 432.413)
+use_collision = true
+size = Vector3(9.8457, 12.2146, 24.9889)
+material = SubResource("StandardMaterial3D_nvd0s")
+
+[node name="Rails" type="Node3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-R"]
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-R/Rails"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 12.2983, 432.363)
+size = Vector3(0.188477, 0.492188, 24.2222)
+material = SubResource("StandardMaterial3D_xnu56")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-R/Rails"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 11.4901, 432.363)
+size = Vector3(0.188477, 0.492188, 24.2222)
+material = SubResource("StandardMaterial3D_xnu56")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-R/Rails"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 10.6593, 432.363)
+size = Vector3(0.188477, 0.492188, 24.2222)
+material = SubResource("StandardMaterial3D_xnu56")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-R/Rails"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 9.85114, 432.363)
+size = Vector3(0.188477, 0.492188, 24.2222)
+material = SubResource("StandardMaterial3D_xnu56")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-R/Rails"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 9.07319, 432.363)
+size = Vector3(0.188477, 0.492188, 24.2222)
+material = SubResource("StandardMaterial3D_xnu56")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-R/Rails"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 8.26501, 432.363)
+size = Vector3(0.188477, 0.492188, 24.2222)
+material = SubResource("StandardMaterial3D_xnu56")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-R/Rails"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 7.43419, 432.363)
+size = Vector3(0.188477, 0.492188, 24.2222)
+material = SubResource("StandardMaterial3D_xnu56")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-R/Rails"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 6.62601, 432.363)
+size = Vector3(0.188477, 0.492188, 24.2222)
+material = SubResource("StandardMaterial3D_xnu56")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-R/Rails"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 5.71283, 432.363)
+size = Vector3(0.188477, 0.492188, 24.2222)
+material = SubResource("StandardMaterial3D_xnu56")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-R/Rails"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 4.90465, 432.363)
+size = Vector3(0.188477, 0.492188, 24.2222)
+material = SubResource("StandardMaterial3D_xnu56")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-R/Rails"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 4.07383, 432.363)
+size = Vector3(0.188477, 0.492188, 24.2222)
+material = SubResource("StandardMaterial3D_xnu56")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-R/Rails"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 3.26565, 432.363)
+size = Vector3(0.188477, 0.492188, 24.2222)
+material = SubResource("StandardMaterial3D_xnu56")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-R/Rails"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 2.4877, 432.363)
+size = Vector3(0.188477, 0.492188, 24.2222)
+material = SubResource("StandardMaterial3D_xnu56")
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-R/Rails"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 1.67951, 432.363)
+size = Vector3(0.188477, 0.492188, 24.2222)
+material = SubResource("StandardMaterial3D_xnu56")
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="Airport 1/Terminal/Hang UR SELF/Hanger-R/Rails"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 239.069, 0.848695, 432.363)
+size = Vector3(0.188477, 0.492188, 24.2222)
+material = SubResource("StandardMaterial3D_xnu56")
+
 [node name="Terminal Building" type="Node3D" parent="Airport 1/Terminal"]
+
+[node name="Main Terminal" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 261.178, 5.79885, 543.62)
+size = Vector3(40, 40, 150)
+material = SubResource("StandardMaterial3D_0onh8")
+
+[node name="Pillar" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 241.238, 10.3787, 470.564)
+size = Vector3(1.98608, 28.4706, 3.74365)
+material = SubResource("StandardMaterial3D_atjhv")
+
+[node name="Pillar2" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 241.238, 10.3787, 616.671)
+size = Vector3(1.98608, 28.4706, 3.74365)
+material = SubResource("StandardMaterial3D_atjhv")
+
+[node name="Roof" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 259.427, 26.0341, 543.754)
+size = Vector3(41.8516, 2.66498, 150.903)
+material = SubResource("StandardMaterial3D_hkmxs")
+
+[node name="Arrival" type="Node3D" parent="Airport 1/Terminal/Terminal Building"]
+
+[node name="Walls" type="Node3D" parent="Airport 1/Terminal/Terminal Building/Arrival"]
+
+[node name="Pillar" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Walls"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.609, 2.51028, 473.778)
+use_collision = true
+size = Vector3(6.06433, 5.66098, 0.484)
+material = SubResource("StandardMaterial3D_xyxlc")
+
+[node name="Pillar2" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Walls"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.609, 2.51028, 478.55)
+use_collision = true
+size = Vector3(6.06433, 5.66098, 0.484)
+material = SubResource("StandardMaterial3D_xyxlc")
+
+[node name="Roof" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Walls"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.489, 5.87604, 476.209)
+size = Vector3(6.53119, 1.32072, 5.7041)
+material = SubResource("StandardMaterial3D_xyxlc")
+
+[node name="Panels" type="Node3D" parent="Airport 1/Terminal/Terminal Building/Arrival"]
+
+[node name="Panel" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.457, 4.76394, 473.772)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel2" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.505, 3.90782, 473.772)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel3" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.564, 3.04061, 473.772)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel4" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.636, 2.15492, 473.772)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel5" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.636, 1.28919, 473.772)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel6" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.714, 0.393753, 473.772)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel7" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.457, 4.76394, 478.603)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel8" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.505, 3.90782, 478.603)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel9" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.564, 3.04061, 478.603)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel10" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.636, 2.15492, 478.603)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel11" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.636, 1.28919, 478.603)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel12" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.714, 0.393753, 478.603)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Roof1" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.339, 5.63403, 476.179)
+size = Vector3(6.3674, 0.733623, 5.84999)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Roof2" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.303, 6.4246, 476.179)
+size = Vector3(6.44048, 0.733623, 5.84999)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Panels"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 236.185, 5.86078, 476.04)
+mesh = SubResource("TextMesh_087e1")
+
+[node name="Door" type="Node3D" parent="Airport 1/Terminal/Terminal Building/Arrival"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 241.453, 1.84076, 476.147)
+size = Vector3(0.599609, 4.68152, 2.41333)
+material = SubResource("StandardMaterial3D_6utco")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 241.476, 1.92178, 476.184)
+size = Vector3(0.552246, 4.84357, 3.03619)
+material = SubResource("StandardMaterial3D_cnylf")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Door"]
+transform = Transform3D(1, 0, 0, 0, 0.0376029, -0.999293, 0, 0.999293, 0.0376029, 241.116, 2.04994, 476.882)
+radius = 0.07
+height = 0.4
+sides = 16
+
+[node name="Windows" type="Node3D" parent="Airport 1/Terminal/Terminal Building/Arrival"]
+
+[node name="Left Sector" type="Node3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 240.487, 13.2024, 472.038)
+
+[node name="Pillar" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Windows/Left Sector"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 1.45877, -8.46158, 31.4009)
+size = Vector3(1.98608, 5.61172, 46.0488)
+material = SubResource("StandardMaterial3D_bwb4f")
+
+[node name="Pillar2" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Windows/Left Sector"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 0.460144, -8.49167, 31.3791)
+size = Vector3(0.064, 5.23468, 45.5557)
+material = SubResource("StandardMaterial3D_6utco")
+
+[node name="Pillar3" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Windows/Left Sector"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 0.638535, -8.50457, 31.0457)
+size = Vector3(0.437469, 5.61172, 0.293148)
+material = SubResource("StandardMaterial3D_bwb4f")
+
+[node name="Pillar4" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Windows/Left Sector"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 0.638535, -8.50457, 19.3105)
+size = Vector3(0.437469, 5.61172, 0.293148)
+material = SubResource("StandardMaterial3D_bwb4f")
+
+[node name="Pillar5" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Windows/Left Sector"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 0.638535, -8.50457, 42.6429)
+size = Vector3(0.437469, 5.61172, 0.293148)
+material = SubResource("StandardMaterial3D_bwb4f")
+
+[node name="Pillar6" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Windows/Left Sector"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.648117, -8.50457, 31.3957)
+size = Vector3(0.43, 45.99, 0.293)
+material = SubResource("StandardMaterial3D_bwb4f")
+
+[node name="Right Sector" type="Node3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 240.487, 13.2024, 523.653)
+
+[node name="Pillar" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Windows/Right Sector"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 1.45877, -8.46158, 31.4009)
+size = Vector3(1.98608, 5.61172, 46.0488)
+material = SubResource("StandardMaterial3D_bwb4f")
+
+[node name="Pillar2" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Windows/Right Sector"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 0.460144, -8.49167, 31.3791)
+size = Vector3(0.064, 5.23468, 45.5557)
+material = SubResource("StandardMaterial3D_6utco")
+
+[node name="Pillar3" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Windows/Right Sector"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 0.638535, -8.50457, 31.0457)
+size = Vector3(0.437469, 5.61172, 0.293148)
+material = SubResource("StandardMaterial3D_bwb4f")
+
+[node name="Pillar4" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Windows/Right Sector"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 0.638535, -8.50457, 19.3105)
+size = Vector3(0.437469, 5.61172, 0.293148)
+material = SubResource("StandardMaterial3D_bwb4f")
+
+[node name="Pillar5" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Windows/Right Sector"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 0.638535, -8.50457, 42.6429)
+size = Vector3(0.437469, 5.61172, 0.293148)
+material = SubResource("StandardMaterial3D_bwb4f")
+
+[node name="Pillar6" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Arrival/Windows/Right Sector"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.648117, -8.50457, 31.3957)
+size = Vector3(0.43, 45.99, 0.293)
+material = SubResource("StandardMaterial3D_bwb4f")
+
+[node name="Pillar3" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 241.238, 10.3787, 529.34)
+size = Vector3(1.98608, 28.4706, 3.74365)
+material = SubResource("StandardMaterial3D_atjhv")
+
+[node name="Pillar4" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 241.238, 10.3787, 588.273)
+size = Vector3(1.98608, 28.4706, 3.74365)
+material = SubResource("StandardMaterial3D_atjhv")
+
+[node name="Departure" type="Node3D" parent="Airport 1/Terminal/Terminal Building"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 105.687)
+
+[node name="Walls" type="Node3D" parent="Airport 1/Terminal/Terminal Building/Departure"]
+
+[node name="Pillar" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Departure/Walls"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.609, 2.51028, 473.778)
+use_collision = true
+size = Vector3(6.06433, 5.66098, 0.484)
+material = SubResource("StandardMaterial3D_xyxlc")
+
+[node name="Pillar2" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Departure/Walls"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.609, 2.51028, 478.55)
+use_collision = true
+size = Vector3(6.06433, 5.66098, 0.484)
+material = SubResource("StandardMaterial3D_xyxlc")
+
+[node name="Roof" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Departure/Walls"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.489, 5.87604, 476.209)
+size = Vector3(6.53119, 1.32072, 5.7041)
+material = SubResource("StandardMaterial3D_xyxlc")
+
+[node name="Panels" type="Node3D" parent="Airport 1/Terminal/Terminal Building/Departure"]
+
+[node name="Panel" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Departure/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.457, 4.76394, 473.772)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel2" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Departure/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.505, 3.90782, 473.772)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel3" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Departure/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.564, 3.04061, 473.772)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel4" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Departure/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.636, 2.15492, 473.772)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel5" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Departure/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.636, 1.28919, 473.772)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel6" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Departure/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.714, 0.393753, 473.772)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel7" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Departure/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.457, 4.76394, 478.603)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel8" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Departure/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.505, 3.90782, 478.603)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel9" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Departure/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.564, 3.04061, 478.603)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel10" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Departure/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.636, 2.15492, 478.603)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel11" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Departure/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.636, 1.28919, 478.603)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel12" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Departure/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.714, 0.393753, 478.603)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Roof1" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Departure/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.339, 5.63403, 476.179)
+size = Vector3(6.3674, 0.733623, 5.84999)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Roof2" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Departure/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.303, 6.4246, 476.179)
+size = Vector3(6.44048, 0.733623, 5.84999)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Airport 1/Terminal/Terminal Building/Departure/Panels"]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 236.15, 5.85801, 476.213)
+mesh = SubResource("TextMesh_42r2p")
+
+[node name="Door" type="Node3D" parent="Airport 1/Terminal/Terminal Building/Departure"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Departure/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 241.453, 1.84076, 476.147)
+size = Vector3(0.599609, 4.68152, 2.41333)
+material = SubResource("StandardMaterial3D_6utco")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/Departure/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 241.476, 1.92178, 476.184)
+size = Vector3(0.552246, 4.84357, 3.03619)
+material = SubResource("StandardMaterial3D_cnylf")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Airport 1/Terminal/Terminal Building/Departure/Door"]
+transform = Transform3D(1, 0, 0, 0, 0.0376029, -0.999293, 0, 0.999293, 0.0376029, 241.116, 2.04994, 476.882)
+radius = 0.07
+height = 0.4
+sides = 16
+
+[node name="STAFF DOOR" type="Node3D" parent="Airport 1/Terminal/Terminal Building"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 134.887)
+
+[node name="Walls" type="Node3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR"]
+
+[node name="Pillar" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR/Walls"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.609, 2.51028, 473.778)
+use_collision = true
+size = Vector3(6.06433, 5.66098, 0.484)
+material = SubResource("StandardMaterial3D_xyxlc")
+
+[node name="Pillar2" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR/Walls"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.609, 2.51028, 478.55)
+use_collision = true
+size = Vector3(6.06433, 5.66098, 0.484)
+material = SubResource("StandardMaterial3D_xyxlc")
+
+[node name="Roof" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR/Walls"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.489, 5.87604, 476.209)
+size = Vector3(6.53119, 1.32072, 5.7041)
+material = SubResource("StandardMaterial3D_xyxlc")
+
+[node name="Pillar3" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 236.875, 2.51028, 476.159)
+use_collision = true
+size = Vector3(5.29633, 5.66098, 0.484)
+material = SubResource("StandardMaterial3D_345rn")
+
+[node name="Panels" type="Node3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR"]
+
+[node name="Panel" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.457, 4.76394, 473.772)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel2" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.505, 3.90782, 473.772)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel3" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.564, 3.04061, 473.772)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel4" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.636, 2.15492, 473.772)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel5" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.636, 1.28919, 473.772)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel6" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.714, 0.393753, 473.772)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel7" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.457, 4.76394, 478.603)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel8" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.505, 3.90782, 478.603)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel9" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.564, 3.04061, 478.603)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel10" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.636, 2.15492, 478.603)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel11" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.636, 1.28919, 478.603)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Panel12" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.714, 0.393753, 478.603)
+size = Vector3(6.12738, 0.822715, 0.682035)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Roof1" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.339, 5.63403, 476.179)
+size = Vector3(6.3674, 0.733623, 5.84999)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="Roof2" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR/Panels"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 239.303, 6.4246, 476.179)
+size = Vector3(6.44048, 0.733623, 5.84999)
+material = SubResource("StandardMaterial3D_6eojs")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR/Panels"]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 236.15, 5.85801, 476.213)
+mesh = SubResource("TextMesh_c27bi")
+
+[node name="Door" type="Node3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 241.453, 1.84076, 476.147)
+size = Vector3(0.599609, 4.68152, 2.41333)
+material = SubResource("StandardMaterial3D_6utco")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 241.476, 1.92178, 476.184)
+size = Vector3(0.552246, 4.84357, 3.03619)
+material = SubResource("StandardMaterial3D_cnylf")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Airport 1/Terminal/Terminal Building/STAFF DOOR/Door"]
+transform = Transform3D(1, 0, 0, 0, 0.0376029, -0.999293, 0, 0.999293, 0.0376029, 241.116, 2.04994, 476.882)
+radius = 0.07
+height = 0.4
+sides = 16
 
 [node name="Taxi Way" type="Node3D" parent="Airport 1"]
 
@@ -849,8 +1578,29 @@ mesh = SubResource("TextMesh_gp3xe")
 transform = Transform3D(0.512567, -1.04444, -4.86276, -2.52786, 4.15533, -1.15895, 4.28336, 2.57729, -0.102064, 0.875242, 1.02118, -0.499714)
 mesh = SubResource("TextMesh_soyog")
 
+[node name="Border7" type="CSGBox3D" parent="Airport 1/Taxi Way"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.888, 0.46, 480.052)
+size = Vector3(0.7, 0.1, 219.176)
+
+[node name="Border8" type="CSGBox3D" parent="Airport 1/Taxi Way"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 195.716, 0.46, 370.783)
+size = Vector3(0.7, 0.1, 96.9675)
+
+[node name="Border9" type="CSGBox3D" parent="Airport 1/Taxi Way"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 196.781, 0.46, 620.077)
+size = Vector3(0.7, 0.1, 99.4004)
+
+[node name="Border10" type="CSGBox3D" parent="Airport 1/Taxi Way"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.725, 0.46, 619.451)
+size = Vector3(0.7, 0.1, 1.94481)
+
+[node name="Border11" type="CSGBox3D" parent="Airport 1/Taxi Way"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 246.124, 0.46, 619.103)
+size = Vector3(0.7, 0.1, 1.24731)
+
 [node name="AeroBody3D" parent="." instance=ExtResource("2_dpfl3")]
-transform = Transform3D(-0.999841, 0.00297162, 0.0175694, -4.44089e-16, 0.985996, -0.166769, -0.0178189, -0.166743, -0.98584, 164.978, 2.29644, 589.256)
+transform = Transform3D(-4.37114e-08, 0.166769, 0.985997, 0, 0.985996, -0.166769, -1, -7.28969e-09, -4.30993e-08, 210.246, 2.29644, 559.485)
 
 [editable path="Airport 1/Taxi Way/0 ; A"]
 [editable path="Airport 1/Taxi Way/0 ; A (2)"]
+[editable path="AeroBody3D"]

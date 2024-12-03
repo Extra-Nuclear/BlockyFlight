@@ -371,7 +371,7 @@ movement_speed = 1.0
 roll_config = SubResource("Resource_m474d")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_266u1"]
-radius = 0.446985
+radius = 0.233701
 height = 2.92036
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0l52v"]
@@ -452,17 +452,18 @@ size = Vector3(3.67285, 0.113525, 1.14014)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.987072, 0.160277, 0, -0.160277, 0.987072, 0, 3.60231, 8.9311)
+current = true
 
 [node name="AeroThrusterComponent" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.71996)
 script = ExtResource("11_ngcth")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, -1.11638, -0.570498)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, -1.24461, -0.563029)
 shape = SubResource("CapsuleShape3D_266u1")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.212158, 5.39021)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.115545, 5.39021)
 shape = SubResource("CapsuleShape3D_266u1")
 
 [node name="Control" type="Control" parent="."]
@@ -543,7 +544,6 @@ _lerp_speed = 0.2
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.17507, -1.28823, -0.54438)
 use_as_steering = true
 wheel_radius = 0.255
-script = ExtResource("14_6n0cj")
 
 [node name="RayCast3D" type="RayCast3D" parent="VehicleWheel3D"]
 target_position = Vector3(0, 5, 20)
@@ -552,7 +552,6 @@ target_position = Vector3(0, 5, 20)
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.175, -1.28835, -0.544572)
 use_as_steering = true
 wheel_radius = 0.255
-script = ExtResource("14_6n0cj")
 
 [node name="RayCast3D" type="RayCast3D" parent="VehicleWheel3D2"]
 target_position = Vector3(0, 5, 20)
@@ -561,6 +560,7 @@ target_position = Vector3(0, 5, 20)
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.000140667, -0.143743, 5.4007)
 use_as_steering = true
 wheel_radius = 0.255
+script = ExtResource("14_6n0cj")
 
 [node name="Pause" parent="." instance=ExtResource("18_cc2c0")]
 
@@ -738,3 +738,9 @@ theme_override_font_sizes/font_size = 13
 text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0427704, 0.686275, 0.296448)
+visible = false
+use_collision = true
+size = Vector3(10.8003, 0.235229, 1.5929)
